@@ -11,8 +11,8 @@ PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\W\[\e[0m\]\$ '
 alias ll='ls -la'
 alias web='cd ~/Web'
 
-if [ -f ~/.git-completion.bash ]; then
-    . ~/.git-completion.bash
+if [ -f ./.git-completion.bash ]; then
+    . ./.git-completion.bash
 fi
 
 export NVM_DIR="$HOME/.nvm"
