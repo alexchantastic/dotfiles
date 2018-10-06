@@ -8,8 +8,8 @@
 [core]
     autocrlf = input
     whitespace = cr-at-eol
-	excludesfile = ~/.gitignore_global
-	pager = diff-so-fancy | less --tabs=2 -RFX
+    excludesfile = ~/.gitignore_global
+    pager = diff-so-fancy | less --tabs=2 -RFX
 
 [alias]
     s = status -s
@@ -51,7 +51,7 @@
     rh2 = reset HEAD^^ --hard
 
 [difftool]
-	prompt = false
+    prompt = false
 
 [mergetool]
-	prompt = false
+    prompt = false
