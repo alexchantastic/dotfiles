@@ -1,14 +1,14 @@
+# aliases
 alias web="cd ~/Web"
 
+# nvm
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
+# zsh plugins
 source "${HOME}/.zgen/zgen.zsh"
 
-# if the init scipt doesn't exist
 if ! zgen saved; then
-
-  # specify plugins here
   zgen oh-my-zsh
   zgen oh-my-zsh plugins/z
   zgen load nojhan/liquidprompt
@@ -19,4 +19,5 @@ if ! zgen saved; then
   zgen save
 fi
 
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
