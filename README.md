@@ -28,6 +28,12 @@ source ~/.dotfiles/.zshrc
 source ~/.dotfiles/.bashrc
 ```
 
+### .bashprofile
+
+```sh
+if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
+```
+
 ### .gitconfig
 
 ```
