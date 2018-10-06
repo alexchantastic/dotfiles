@@ -1,0 +1,57 @@
+[user]
+	name = Alex Chan
+	email = alexchantastic@gmail.com
+
+[color]
+    ui = auto
+
+[core]
+    autocrlf = input
+    whitespace = cr-at-eol
+	excludesfile = ~/.gitignore_global
+	pager = diff-so-fancy | less --tabs=2 -RFX
+
+[alias]
+    s = status -s
+    c = commit -a -m
+    aa = "!git add -u && git add . && git status -s"
+    amend = commit -a --amend
+    rb = rebase
+    rbc = rebase --continue
+    f = fetch
+    fo = fetch origin
+    fu = fetch upstream
+    d = diff
+    dt = difftool
+    alias = "!git config -l | grep alias | cut -c 7-"
+
+    # branch commnads
+    b = branch
+    co = checkout
+    cob = checkout -b
+    remove-merged = "!git branch --merged master | grep -v 'master$' | xargs git branch -d"
+
+    # grep commands
+    gpath = "!git ls-files | grep -i"
+    grep = grep -Ii
+
+    # log commands
+    l = log
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+
+    # reset commands
+    undo = reset --hard HEAD
+    undoc = reset --soft HEAD^
+    r = reset
+    r1 = reset HEAD^
+    r2 = reset HEAD^^
+    rh = reset --hard
+    rh1 = reset HEAD^ --hard
+    rh2 = reset HEAD^^ --hard
+
+[difftool]
+	prompt = false
+
+[mergetool]
+	prompt = false
