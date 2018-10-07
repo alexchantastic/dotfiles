@@ -5,14 +5,14 @@ fi
 
 # colors
 export TERM=xterm-color
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+export GREP_OPTIONS="--color=auto" GREP_COLOR="1;32"
 export CLICOLOR=1
 export LSCOLORS="exfxcxdxbxegedabagacad"
-PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\W\[\e[0m\]\$ '
+PS1="\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\W\[\e[0m\]\$ "
 
 # aliases
-alias ll='ls -la'
-alias web='cd ~/Web'
+alias ll="ls -la"
+alias web="cd ~/Web"
 
 # git completion
 if [ -f ./.git-completion.bash ]; then
