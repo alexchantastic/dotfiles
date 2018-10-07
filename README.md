@@ -6,8 +6,6 @@ My personal collection of dotfiles.
 
 * [zsh](http://www.zsh.org/) - Unix shell
 * [zgen](https://github.com/tarjoilija/zgen) - Zsh plugin manager
-* [liquidprompt](https://github.com/nojhan/liquidprompt) - Bash prompt
-* [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - Colorized difftool
 
 ## Installation
 
@@ -56,10 +54,12 @@ source ~/.dotfiles/.vimrc
 
 * [ack](https://beyondgrep.com/) - Fast grep
 * [bat](https://github.com/sharkdp/bat) - Colorized cat
+* [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - Colorized difftool
 * [fd](https://github.com/sharkdp/fd) - Fast find
 * [fzf](https://github.com/junegunn/fzf) - Fuzzy finder
 * [Git](https://git-scm.com/) - Version control
 * [Homebrew](https://brew.sh/) - MacOS package manager
+* [liquidprompt](https://github.com/nojhan/liquidprompt) - Bash prompt
 * [nvm](https://github.com/creationix/nvm) - Node version manager
 * [tldr](https://github.com/tldr-pages/tldr) - Simplified man pages
 * [Yarn](https://yarnpkg.com/) - JavaScript package manager
