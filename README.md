@@ -40,6 +40,10 @@ if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 ```
 [include]
     path= ~/.dotfiles/.gitconfig
+
+[user]
+	name = YOUR_NAME
+	email = YOUR_EMAIL
 ```
 
 ### .vimrc
