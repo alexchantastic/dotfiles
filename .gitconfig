@@ -56,3 +56,6 @@
 
 [mergetool]
     prompt = false
+
+[grep]
+    linenumber = true
