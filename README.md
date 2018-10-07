@@ -29,7 +29,7 @@ source ~/.dotfiles/.zshrc
 source ~/.dotfiles/.bashrc
 ```
 
-### .bashprofile
+### .bash_profile
 
 ```sh
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
