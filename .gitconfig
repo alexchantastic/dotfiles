@@ -55,6 +55,7 @@
     # reset commands
     undo = reset --hard HEAD
     undoc = reset --soft HEAD^
+    rom = reset --hard origin/master
     r = reset
     r1 = reset HEAD^
     r2 = reset HEAD^^
