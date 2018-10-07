@@ -17,19 +17,27 @@
     c = commit -a -m
     aa = "!git add -u && git add . && git status -s"
     amend = commit -a --amend
-    p = push
-    po = push origin
-    poh = push origin HEAD
-    rb = rebase
-    rbc = rebase --continue
+    alias = "!git config -l | grep alias | cut -c 7-"
+
+    # diff commands
+    d = diff
+    dt = difftool
+
+    # fetch commands
     f = fetch
     fo = fetch origin
     fu = fetch upstream
-    d = diff
-    dt = difftool
-    alias = "!git config -l | grep alias | cut -c 7-"
 
-    # branch commnads
+    # push commands
+    p = push
+    po = push origin
+    poh = push origin HEAD
+
+    # rebase commands
+    rb = rebase
+    rbc = rebase --continue
+
+    # branch commands
     b = branch
     co = checkout
     cob = checkout -b
