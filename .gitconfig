@@ -18,6 +18,7 @@
     aa = "!git add -u && git add . && git status -s"
     amend = commit -a --amend
     p = push
+    po = push origin
     poh = push origin HEAD
     rb = rebase
     rbc = rebase --continue
