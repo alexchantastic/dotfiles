@@ -17,6 +17,8 @@
     c = commit -a -m
     aa = "!git add -u && git add . && git status -s"
     amend = commit -a --amend
+    p = push
+    poh = push origin HEAD
     rb = rebase
     rbc = rebase --continue
     f = fetch
