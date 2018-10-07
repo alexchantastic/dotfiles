@@ -4,9 +4,10 @@ My personal collection of dotfiles.
 
 ## Requirements
 
+* [zsh](http://www.zsh.org/) - Unix shell
 * [zgen](https://github.com/tarjoilija/zgen) - Zsh plugin manager
 * [liquidprompt](https://github.com/nojhan/liquidprompt) - Bash prompt
-* [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - Difftool
+* [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - Colorized difftool
 
 ## Installation
 
@@ -49,10 +50,11 @@ source ~/.dotfiles/.vimrc
 
 ## Useful things to install
 
-* [Homebrew](https://brew.sh/) - MacOS package manager
-* [Git](https://git-scm.com/) - Version control
-* [nvm](https://github.com/creationix/nvm) - Node version manager
-* [fzf](https://github.com/junegunn/fzf) - Fuzzy finder
-* [fd](https://github.com/sharkdp/fd) - Fast find
 * [ack](https://beyondgrep.com/) - Fast grep
+* [fd](https://github.com/sharkdp/fd) - Fast find
+* [fzf](https://github.com/junegunn/fzf) - Fuzzy finder
+* [Git](https://git-scm.com/) - Version control
+* [Homebrew](https://brew.sh/) - MacOS package manager
+* [nvm](https://github.com/creationix/nvm) - Node version manager
 * [tldr](https://github.com/tldr-pages/tldr) - Simplified man pages
+* [Yarn](https://yarnpkg.com/) - JavaScript package manager
