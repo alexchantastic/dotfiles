@@ -51,6 +51,7 @@ source ~/.dotfiles/.vimrc
 ## Useful things to install
 
 * [ack](https://beyondgrep.com/) - Fast grep
+* [bat](https://github.com/sharkdp/bat) - Colorized cat
 * [fd](https://github.com/sharkdp/fd) - Fast find
 * [fzf](https://github.com/junegunn/fzf) - Fuzzy finder
 * [Git](https://git-scm.com/) - Version control
