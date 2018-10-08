@@ -15,7 +15,6 @@ if ! zgen saved; then
   zgen load zsh-users/zsh-syntax-highlighting
   zgen load zsh-users/zsh-autosuggestions
   zgen load zsh-users/zsh-completions
-  zgen load supercrabtree/k
 
   zgen save
 fi
