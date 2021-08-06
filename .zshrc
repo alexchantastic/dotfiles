@@ -5,6 +5,9 @@ alias web="cd ~/Web"
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
+# Git Extras completions
+source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
+
 # zsh plugins
 source "${HOME}/.zgen/zgen.zsh"
 

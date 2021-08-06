@@ -58,6 +58,7 @@ source ~/.dotfiles/.vimrc
 * [fd](https://github.com/sharkdp/fd) - Fast find
 * [fzf](https://github.com/junegunn/fzf) - Fuzzy finder
 * [Git](https://git-scm.com/) - Version control
+* [Git Extras](https://github.com/tj/git-extras) - Git extensions
 * [Homebrew](https://brew.sh/) - MacOS package manager
 * [liquidprompt](https://github.com/nojhan/liquidprompt) - Bash prompt
 * [nvm](https://github.com/creationix/nvm) - Node version manager
