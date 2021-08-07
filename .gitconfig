@@ -49,6 +49,7 @@
     # reset commands
     rom = reset --hard origin/master
     r = reset
+    rh = reset --hard
 
 [difftool]
     prompt = false
