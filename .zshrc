@@ -12,7 +12,7 @@ source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh
 # Yarn
 export PATH="$PATH:$(yarn global bin)"
 
-# zsh plugins
+# Zsh plugins
 source "${HOME}/.zgen/zgen.zsh"
 
 if ! zgen saved; then

@@ -21,18 +21,6 @@ git clone git@github.com:alexchantastic/dotfiles.git .dotfiles
 source ~/.dotfiles/.zshrc
 ```
 
-### .bashrc
-
-```sh
-source ~/.dotfiles/.bashrc
-```
-
-### .bash_profile
-
-```sh
-if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
-```
-
 ### .gitconfig
 
 ```
@@ -60,7 +48,6 @@ source ~/.dotfiles/.vimrc
 * [Git](https://git-scm.com/) - Version control
 * [Git Extras](https://github.com/tj/git-extras) - Git extensions
 * [Homebrew](https://brew.sh/) - MacOS package manager
-* [liquidprompt](https://github.com/nojhan/liquidprompt) - Bash prompt
 * [nvm](https://github.com/creationix/nvm) - Node version manager
 * [tldr](https://github.com/tldr-pages/tldr) - Simplified man pages
 * [Yarn](https://yarnpkg.com/) - JavaScript package manager
