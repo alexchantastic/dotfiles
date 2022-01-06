@@ -7,7 +7,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Git Extras completions
-source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
+source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh
 
 # zsh plugins
 source "${HOME}/.zgen/zgen.zsh"
