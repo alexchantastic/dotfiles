@@ -1,5 +1,5 @@
 # aliases
-alias web="cd ~/Web"
+alias pro="cd ~/Projects"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
