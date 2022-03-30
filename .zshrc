@@ -9,9 +9,6 @@ export NVM_DIR="$HOME/.nvm"
 # Git Extras completions
 source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh
 
-# Yarn
-export PATH="$PATH:$(yarn global bin)"
-
 # Zsh plugins
 source "${HOME}/.zgen/zgen.zsh"
 
