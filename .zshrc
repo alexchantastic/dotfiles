@@ -18,6 +18,7 @@ if ! zgen saved; then
   zgen load nojhan/liquidprompt
   zgen load zsh-users/zsh-syntax-highlighting
   zgen load zsh-users/zsh-completions
+  zgen load wfxr/forgit
 
   zgen save
 fi
