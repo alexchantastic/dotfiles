@@ -1,5 +1,6 @@
 # aliases
 alias pro="cd ~/Projects"
+alias tt='cd $(git rev-parse --show-toplevel)'
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
