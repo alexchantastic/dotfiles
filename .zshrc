@@ -22,16 +22,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# Git
-zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
-fpath=(~/.zsh $fpath)
-
-source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh
-
 # Antigen
 source /opt/homebrew/share/antigen/antigen.zsh
 
 antigen use oh-my-zsh
+antigen bundle git-extras
+antigen bundle npm
+antigen bundle yarn
 antigen bundle nojhan/liquidprompt
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
