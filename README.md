@@ -5,7 +5,8 @@ My personal collection of dotfiles.
 ## Requirements
 
 * [zsh](http://www.zsh.org/) - Unix shell
-* [zgen](https://github.com/tarjoilija/zgen) - Zsh plugin manager
+* [Antigen](https://github.com/zsh-users/antigen) - zsh plugin manager
+* [Vundle](https://github.com/VundleVim/Vundle.vim) - Vim plugin manager
 
 ## Installation
 
@@ -40,8 +41,8 @@ source ~/.dotfiles/.vimrc
 
 ## Useful things to install
 
-* [ack](https://beyondgrep.com/) - Fast grep
-* [bat](https://github.com/sharkdp/bat) - Colorized cat
+* [ack](https://beyondgrep.com/) - Fast `grep`
+* [bat](https://github.com/sharkdp/bat) - Colorized `cat`
 * [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - Colorized difftool
 * [fd](https://github.com/sharkdp/fd) - Fast find
 * [fzf](https://github.com/junegunn/fzf) - Fuzzy finder
@@ -51,3 +52,4 @@ source ~/.dotfiles/.vimrc
 * [nvm](https://github.com/creationix/nvm) - Node version manager
 * [tldr](https://github.com/tldr-pages/tldr) - Simplified man pages
 * [Yarn](https://yarnpkg.com/) - JavaScript package manager
+* [Zoxide](https://github.com/ajeetdsouza/zoxide) - Improved `cd`
