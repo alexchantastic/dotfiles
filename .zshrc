@@ -1,6 +1,12 @@
+# functions
+cdsh () (
+  cd "$1" && shift && command "$@"
+)
+
 # aliases
 alias pro="cd ~/Projects"
 alias tt='cd $(git rev-parse --show-toplevel)'
+alias ttsh='cdsh $(git rev-parse --show-toplevel)'
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
