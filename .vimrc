@@ -13,5 +13,8 @@ filetype plugin indent on
 " Keymaps
 nnoremap <C-n> :NERDTreeToggle<CR>
 
+" Show line numbers
+set number
+
 " vimrc
 source ./vim/basic.vim
