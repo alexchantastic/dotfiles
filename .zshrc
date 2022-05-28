@@ -8,8 +8,14 @@ alias pro="cd ~/Projects"
 alias tt='cd $(git rev-parse --show-toplevel)'
 alias ttsh='cdsh $(git rev-parse --show-toplevel)'
 
+# Homebrew
+eval $(/opt/homebrew/bin/brew shellenv)
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Zoxide
+eval "$(zoxide init zsh)"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
