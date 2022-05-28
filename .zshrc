@@ -8,6 +8,9 @@ alias pro="cd ~/Projects"
 alias tt='cd $(git rev-parse --show-toplevel)'
 alias ttsh='cdsh $(git rev-parse --show-toplevel)'
 
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -16,19 +19,13 @@ export NVM_DIR="$HOME/.nvm"
 # Git Extras completions
 source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh
 
-# Zsh plugins
-source "${HOME}/.zgen/zgen.zsh"
+# Antigen
+source /opt/homebrew/share/antigen/antigen.zsh
 
-if ! zgen saved; then
-  zgen oh-my-zsh
-  zgen oh-my-zsh plugins/z
-  zgen load nojhan/liquidprompt
-  zgen load zsh-users/zsh-syntax-highlighting
-  zgen load zsh-users/zsh-completions
-  zgen load wfxr/forgit
+antigen use oh-my-zsh
+antigen bundle nojhan/liquidprompt
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+antigen bundle wfxr/forgit
 
-  zgen save
-fi
-
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+antigen apply
