@@ -32,6 +32,7 @@ antigen bundle zoxide
 antigen bundle copyfile
 antigen bundle copypath
 antigen bundle copybuffer
+antigen bundle gitfast
 antigen bundle nojhan/liquidprompt
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
