@@ -48,7 +48,7 @@ source ~/.dotfiles/.vimrc
 * [fzf](https://github.com/junegunn/fzf) - Fuzzy finder
 * [Git](https://git-scm.com/) - Version control
 * [Git Extras](https://github.com/tj/git-extras) - Git extensions
-* [Homebrew](https://brew.sh/) - MacOS package manager
+* [Homebrew](https://brew.sh/) - macOS package manager
 * [nvm](https://github.com/creationix/nvm) - Node version manager
 * [tldr](https://github.com/tldr-pages/tldr) - Simplified man pages
 * [Yarn](https://yarnpkg.com/) - JavaScript package manager
