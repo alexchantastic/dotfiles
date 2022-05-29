@@ -12,7 +12,7 @@ alias ttsh='cdsh $(git rev-parse --show-toplevel)'
 eval $(/opt/homebrew/bin/brew shellenv)
 
 # nvm
-NVM_HOMEBREW=$(brew --prefix nvm)
+NVM_DIR=$(brew --prefix nvm)
 
 # Antigen
 source /opt/homebrew/share/antigen/antigen.zsh
