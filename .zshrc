@@ -24,6 +24,7 @@ antigen bundle copypath
 antigen bundle fzf
 antigen bundle git-extras
 antigen bundle gitfast
+antigen bundle httpie
 antigen bundle npm
 antigen bundle nvm
 antigen bundle yarn

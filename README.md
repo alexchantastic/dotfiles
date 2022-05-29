@@ -49,6 +49,7 @@ source ~/.dotfiles/.vimrc
 * [Git](https://git-scm.com/) - Version control
 * [Git Extras](https://github.com/tj/git-extras) - Git extensions
 * [Homebrew](https://brew.sh/) - macOS package manager
+* [httpie](https://github.com/httpie/httpie) - HTTP client
 * [nvm](https://github.com/creationix/nvm) - Node version manager
 * [tldr](https://github.com/tldr-pages/tldr) - Simplified man pages
 * [Yarn](https://yarnpkg.com/) - JavaScript package manager
