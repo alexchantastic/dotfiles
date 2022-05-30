@@ -1,9 +1,14 @@
-# functions
+# Enable Powerlevel10k instant prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Functions
 cdsh () (
   cd "$1" && shift && command "$@"
 )
 
-# aliases
+# Aliases
 alias lg="lazygit"
 alias pro="cd ~/Projects"
 alias tt='cd $(git rev-parse --show-toplevel)'
@@ -14,6 +19,9 @@ eval $(/opt/homebrew/bin/brew shellenv)
 
 # fnm
 eval "$(fnm env --use-on-cd)"
+
+# Powerlevel10k
+source ~/.dotfiles/zsh/p10k.zsh
 
 # Antigen
 source /opt/homebrew/share/antigen/antigen.zsh
