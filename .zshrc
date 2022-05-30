@@ -19,6 +19,7 @@ eval "$(fnm env)"
 source /opt/homebrew/share/antigen/antigen.zsh
 
 antigen use oh-my-zsh
+
 antigen bundle copybuffer
 antigen bundle copyfile
 antigen bundle copypath
@@ -29,9 +30,10 @@ antigen bundle httpie
 antigen bundle npm
 antigen bundle yarn
 antigen bundle zoxide
-antigen bundle nojhan/liquidprompt
 antigen bundle wfxr/forgit
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen theme romkatv/powerlevel10k
 
 antigen apply
