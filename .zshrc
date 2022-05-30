@@ -38,6 +38,7 @@ antigen bundle httpie
 antigen bundle npm
 antigen bundle yarn
 antigen bundle zoxide
+antigen bundle Aloxaf/fzf-tab
 antigen bundle wfxr/forgit
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
