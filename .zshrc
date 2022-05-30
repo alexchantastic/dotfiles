@@ -13,7 +13,7 @@ alias ttsh='cdsh $(git rev-parse --show-toplevel)'
 eval $(/opt/homebrew/bin/brew shellenv)
 
 # fnm
-eval "$(fnm env)"
+eval "$(fnm env --use-on-cd)"
 
 # Antigen
 source /opt/homebrew/share/antigen/antigen.zsh
