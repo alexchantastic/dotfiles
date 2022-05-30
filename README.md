@@ -46,10 +46,11 @@ source ~/.dotfiles/.vimrc
 * [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - Colorized difftool
 * [fd](https://github.com/sharkdp/fd) - Fast find
 * [fzf](https://github.com/junegunn/fzf) - Fuzzy finder
-* [Git](https://git-scm.com/) - Version control
 * [Git Extras](https://github.com/tj/git-extras) - Git extensions
+* [Git](https://git-scm.com/) - Version control
 * [Homebrew](https://brew.sh/) - macOS package manager
 * [httpie](https://github.com/httpie/httpie) - HTTP client
+* [lazygit](https://github.com/jesseduffield/lazygit) - Terminal UI for Git
 * [nvm](https://github.com/creationix/nvm) - Node version manager
 * [tldr](https://github.com/tldr-pages/tldr) - Simplified man pages
 * [Yarn](https://yarnpkg.com/) - JavaScript package manager

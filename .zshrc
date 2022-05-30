@@ -4,6 +4,7 @@ cdsh () (
 )
 
 # aliases
+alias lg="lazygit"
 alias pro="cd ~/Projects"
 alias tt='cd $(git rev-parse --show-toplevel)'
 alias ttsh='cdsh $(git rev-parse --show-toplevel)'
