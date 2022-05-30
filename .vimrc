@@ -21,4 +21,4 @@ let g:ctrlp_show_hidden=1
 set number
 
 " vimrc
-source ./vim/basic.vim
+source ~/.dotfiles/vim/basic.vim
