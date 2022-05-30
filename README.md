@@ -51,7 +51,7 @@ source ~/.dotfiles/.vimrc
 * [Homebrew](https://brew.sh/) - macOS package manager
 * [httpie](https://github.com/httpie/httpie) - HTTP client
 * [lazygit](https://github.com/jesseduffield/lazygit) - Terminal UI for Git
-* [nvm](https://github.com/creationix/nvm) - Node version manager
+* [fnm](https://github.com/Schniz/fnm) - Node version manager
 * [tldr](https://github.com/tldr-pages/tldr) - Simplified man pages
 * [Yarn](https://yarnpkg.com/) - JavaScript package manager
 * [Zoxide](https://github.com/ajeetdsouza/zoxide) - Improved `cd`

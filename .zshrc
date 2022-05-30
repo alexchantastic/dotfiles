@@ -12,8 +12,8 @@ alias ttsh='cdsh $(git rev-parse --show-toplevel)'
 # Homebrew
 eval $(/opt/homebrew/bin/brew shellenv)
 
-# nvm
-NVM_DIR=$(brew --prefix nvm)
+# fnm
+eval "$(fnm env)"
 
 # Antigen
 source /opt/homebrew/share/antigen/antigen.zsh
@@ -27,7 +27,6 @@ antigen bundle git-extras
 antigen bundle gitfast
 antigen bundle httpie
 antigen bundle npm
-antigen bundle nvm
 antigen bundle yarn
 antigen bundle zoxide
 antigen bundle nojhan/liquidprompt
