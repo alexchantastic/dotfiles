@@ -45,13 +45,14 @@ source ~/.dotfiles/.vimrc
 * [bat](https://github.com/sharkdp/bat) - Colorized `cat`
 * [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - Colorized difftool
 * [fd](https://github.com/sharkdp/fd) - Fast find
+* [fnm](https://github.com/Schniz/fnm) - Node version manager
 * [fzf](https://github.com/junegunn/fzf) - Fuzzy finder
 * [Git Extras](https://github.com/tj/git-extras) - Git extensions
 * [Git](https://git-scm.com/) - Version control
 * [Homebrew](https://brew.sh/) - macOS package manager
 * [httpie](https://github.com/httpie/httpie) - HTTP client
 * [lazygit](https://github.com/jesseduffield/lazygit) - Terminal UI for Git
-* [fnm](https://github.com/Schniz/fnm) - Node version manager
+* [ripgrep](https://github.com/BurntSushi/ripgrep) - Fast `grep`
 * [tldr](https://github.com/tldr-pages/tldr) - Simplified man pages
 * [Yarn](https://yarnpkg.com/) - JavaScript package manager
 * [Zoxide](https://github.com/ajeetdsouza/zoxide) - Improved `cd`
