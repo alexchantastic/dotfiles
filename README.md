@@ -41,7 +41,6 @@ source ~/.dotfiles/.vimrc
 
 ## Useful things to install
 
-* [ack](https://beyondgrep.com/) - Fast `grep`
 * [bat](https://github.com/sharkdp/bat) - Colorized `cat`
 * [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - Colorized difftool
 * [fd](https://github.com/sharkdp/fd) - Fast find
