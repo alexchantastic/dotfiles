@@ -42,6 +42,7 @@ source ~/.dotfiles/.vimrc
 ## Useful things to install
 
 * [bat](https://github.com/sharkdp/bat) - Colorized `cat`
+* [croc](https://github.com/schollz/croc) - Send files between computers
 * [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - Colorized difftool
 * [fd](https://github.com/sharkdp/fd) - Fast find
 * [fnm](https://github.com/Schniz/fnm) - Node version manager
