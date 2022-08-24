@@ -52,6 +52,8 @@ source ~/.dotfiles/.vimrc
 * [Homebrew](https://brew.sh/) - macOS package manager
 * [httpie](https://github.com/httpie/httpie) - HTTP client
 * [lazygit](https://github.com/jesseduffield/lazygit) - Terminal UI for Git
+* [Node.js](https://nodejs.org/) - JavaScript runtime
+* [pnpm](https://pnpm.io/) - JavaScript package manager
 * [ripgrep](https://github.com/BurntSushi/ripgrep) - Fast `grep`
 * [tldr](https://github.com/tldr-pages/tldr) - Simplified man pages
 * [Yarn](https://yarnpkg.com/) - JavaScript package manager

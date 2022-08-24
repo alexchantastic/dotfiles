@@ -10,6 +10,7 @@ cdsh () (
 
 # Aliases
 alias lg="lazygit"
+alias pn="pnpm"
 alias pro="cd ~/Projects"
 alias tt='cd $(git rev-parse --show-toplevel)'
 alias ttsh='cdsh $(git rev-parse --show-toplevel)'
