@@ -47,7 +47,7 @@
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 
     # reset commands
-    rom = reset --hard origin/master
+    rom = reset --hard origin/main
     r = reset
     rh = reset --hard
     rs = reset --soft
