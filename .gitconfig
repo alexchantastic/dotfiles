@@ -50,6 +50,7 @@
     rom = reset --hard origin/master
     r = reset
     rh = reset --hard
+    rs = reset --soft
 
 [difftool]
     prompt = false
