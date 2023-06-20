@@ -10,9 +10,9 @@
 [alias]
     # general commands
     s = status -s
-    c = commit -a -m
+    c = commit -m
     aa = "!git add -u && git add . && git status -s"
-    amend = commit -a --amend
+    amend = commit --amend
 
     # diff commands
     d = diff
