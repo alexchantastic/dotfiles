@@ -11,8 +11,10 @@
     # general commands
     s = status -s
     c = commit -m
+    ca = commit -a -m
     aa = "!git add -u && git add . && git status -s"
     amend = commit --amend
+    amenda = commit -a --amend
 
     # diff commands
     d = diff
