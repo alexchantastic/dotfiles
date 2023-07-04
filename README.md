@@ -51,6 +51,7 @@ source ~/.dotfiles/.vimrc
 * [Git](https://git-scm.com/) - Version control
 * [Homebrew](https://brew.sh/) - macOS package manager
 * [httpie](https://github.com/httpie/httpie) - HTTP client
+* [lazydocker](https://github.com/jesseduffield/lazydocker) - Terminal UI for Docker
 * [lazygit](https://github.com/jesseduffield/lazygit) - Terminal UI for Git
 * [Node.js](https://nodejs.org/) - JavaScript runtime
 * [pnpm](https://pnpm.io/) - JavaScript package manager
