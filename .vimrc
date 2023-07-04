@@ -7,6 +7,7 @@ call vundle#begin()
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'NLKNguyen/papercolor-theme'
 
 call vundle#end()
