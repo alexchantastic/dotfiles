@@ -140,7 +140,8 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme desert
+    colorscheme PaperColor
+    let g:airline_theme='papercolor'
 catch
 endtry
 
