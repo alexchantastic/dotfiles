@@ -5,7 +5,7 @@ fi
 
 # Functions
 cdsh () (
-  cd "$1" && shift && zsh -ci "$@"
+  cd "$1" && shift && zsh -ci "$*"
 )
 
 # Aliases
