@@ -15,17 +15,11 @@ alias pro="cd ~/Projects"
 alias tt='cd $(git rev-parse --show-toplevel)'
 alias ttsh='cdsh $(git rev-parse --show-toplevel)'
 
-# Homebrew
-eval $(/opt/homebrew/bin/brew shellenv)
-
 # fnm
 eval "$(fnm env --use-on-cd)"
 
 # Powerlevel10k
 source ~/.dotfiles/zsh/p10k.zsh
-
-# Antigen
-source /opt/homebrew/share/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
