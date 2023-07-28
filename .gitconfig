@@ -30,6 +30,10 @@
     po = push origin
     poh = push origin HEAD
 
+    # merge commands
+    m = merge
+    mom = merge origin/main
+
     # rebase commands
     rb = rebase
     rbc = rebase --continue
