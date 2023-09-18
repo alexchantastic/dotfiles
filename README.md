@@ -7,6 +7,7 @@ My personal collection of dotfiles.
 * [zsh](http://www.zsh.org/) - Unix shell
 * [Antigen](https://github.com/zsh-users/antigen) - zsh plugin manager
 * [Vundle](https://github.com/VundleVim/Vundle.vim) - Vim plugin manager
+* [tpm](https://github.com/tmux-plugins/tpm) - Tmux plugin manager
 
 ## Installation
 
@@ -39,6 +40,12 @@ source ~/.dotfiles/.zshrc
 source ~/.dotfiles/.vimrc
 ```
 
+### .tmux.conf
+
+```sh
+source ~/.dotfiles/.tmux.conf
+```
+
 ## Useful things to install
 
 * [bat](https://github.com/sharkdp/bat) - Colorized `cat`
@@ -57,5 +64,6 @@ source ~/.dotfiles/.vimrc
 * [pnpm](https://pnpm.io/) - JavaScript package manager
 * [ripgrep](https://github.com/BurntSushi/ripgrep) - Fast `grep`
 * [tldr](https://github.com/tldr-pages/tldr) - Simplified man pages
+* [tmux](https://github.com/tmux/tmux) - Terminal multiplexer
 * [Yarn](https://yarnpkg.com/) - JavaScript package manager
 * [Zoxide](https://github.com/ajeetdsouza/zoxide) - Improved `cd`
