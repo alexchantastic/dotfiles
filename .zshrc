@@ -21,6 +21,9 @@ eval "$(fnm env --use-on-cd)"
 # Powerlevel10k
 source ~/.dotfiles/zsh/p10k.zsh
 
+# nnn
+source ~/.dotfiles/zsh/nnn.zsh
+
 antigen use oh-my-zsh
 
 antigen bundle copybuffer

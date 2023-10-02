@@ -60,6 +60,7 @@ source ~/.dotfiles/.tmux.conf
 * [httpie](https://github.com/httpie/httpie) - HTTP client
 * [lazydocker](https://github.com/jesseduffield/lazydocker) - Terminal UI for Docker
 * [lazygit](https://github.com/jesseduffield/lazygit) - Terminal UI for Git
+* [nnn](https://github.com/jarun/nnn) - File manager
 * [Node.js](https://nodejs.org/) - JavaScript runtime
 * [pnpm](https://pnpm.io/) - JavaScript package manager
 * [ripgrep](https://github.com/BurntSushi/ripgrep) - Fast `grep`
