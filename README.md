@@ -49,6 +49,7 @@ source ~/.dotfiles/.tmux.conf
 ## Useful things to install
 
 * [bat](https://github.com/sharkdp/bat) - Colorized `cat`
+* [btop](https://github.com/aristocratos/btop) - System resource monitor
 * [croc](https://github.com/schollz/croc) - Send files between computers
 * [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - Colorized difftool
 * [exa](https://the.exa.website/) - Colorized `ls`
@@ -68,4 +69,5 @@ source ~/.dotfiles/.tmux.conf
 * [tldr](https://github.com/tldr-pages/tldr) - Simplified man pages
 * [tmux](https://github.com/tmux/tmux) - Terminal multiplexer
 * [Yarn](https://yarnpkg.com/) - JavaScript package manager
+* [viu](https://github.com/atanunq/viu) - Image viewer
 * [Zoxide](https://github.com/ajeetdsouza/zoxide) - Improved `cd`
