@@ -51,6 +51,7 @@ source ~/.dotfiles/.tmux.conf
 * [bat](https://github.com/sharkdp/bat) - Colorized `cat`
 * [croc](https://github.com/schollz/croc) - Send files between computers
 * [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - Colorized difftool
+* [exa](https://the.exa.website/) - Colorized `ls`
 * [fd](https://github.com/sharkdp/fd) - Fast find
 * [fnm](https://github.com/Schniz/fnm) - Node version manager
 * [fzf](https://github.com/junegunn/fzf) - Fuzzy finder
