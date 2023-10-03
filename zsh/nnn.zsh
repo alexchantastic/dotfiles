@@ -2,6 +2,10 @@ export NNN_OPTS="adeH"
 export NNN_FIFO="/tmp/nnn.fifo"
 export NNN_PLUG="p:preview-tui;c:fzcd;o:fzopen"
 
+BLK="03" CHR="03" DIR="04" EXE="02" REG="07" HARDLINK="05" SYMLINK="05" MISSING="08" ORPHAN="01" FIFO="06" SOCK="03" UNKNOWN="01"
+export NNN_COLORS="#04020301;4231"
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$UNKNOWN"
+
 n ()
 {
     # Block nesting of nnn in subshells
