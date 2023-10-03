@@ -12,6 +12,9 @@ source ~/.dotfiles/zsh/p10k.zsh
 # nnn
 source ~/.dotfiles/zsh/nnn.zsh
 
+# bat
+source ~/.dotfiles/zsh/bat.zsh
+
 # plugins
 antigen use oh-my-zsh
 
