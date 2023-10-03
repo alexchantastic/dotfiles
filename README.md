@@ -50,6 +50,7 @@ source ~/.dotfiles/.tmux.conf
 
 * [bat](https://github.com/sharkdp/bat) - Colorized `cat`
 * [btop](https://github.com/aristocratos/btop) - System resource monitor
+* [Clipboard](https://github.com/Slackadays/Clipboard) - Clipboard manager
 * [croc](https://github.com/schollz/croc) - Send files between computers
 * [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - Colorized difftool
 * [exa](https://the.exa.website/) - Colorized `ls`
