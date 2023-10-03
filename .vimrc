@@ -12,12 +12,28 @@ Plugin 'catppuccin/vim'
 call vundle#end()
 filetype plugin indent on
 
+" Behaviors
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+set showmatch
+set mouse=a
+set number
+set fillchars=eob:\ 
+
 " Colors
 set termguicolors
 syntax enable
 
 " Text
+set expandtab
 set smarttab
+set shiftwidth=2
+set tabstop=2
+set ai
+set si
+set wrap
 
 " Theme
 colorscheme catppuccin_mocha
@@ -29,6 +45,3 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 " ctrlp
 let g:ctrlp_show_hidden=1
 
-" Show line numbers
-set number
-set fillchars=eob:\ 
