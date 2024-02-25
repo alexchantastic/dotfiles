@@ -6,6 +6,7 @@ call vundle#begin()
 
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'preservim/nerdtree'
+Plugin 'machakann/vim-sandwich'
 Plugin 'vim-airline/vim-airline'
 Plugin 'catppuccin/vim'
 
@@ -19,7 +20,7 @@ set hlsearch
 set incsearch
 set showmatch
 set mouse=a
-set number
+set number relativenumber
 set fillchars=eob:\ 
 
 " Colors
