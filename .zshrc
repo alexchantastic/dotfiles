@@ -3,6 +3,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# neovim
+alias vi=nvim
+export EDITOR=nvim
+export VISUAL=nvim
+
 # fnm
 eval "$(fnm env --use-on-cd)"
 
@@ -15,7 +20,7 @@ source ~/.dotfiles/zsh/nnn.zsh
 # bat
 source ~/.dotfiles/zsh/bat.zsh
 
-# plugins
+# Plugins
 antigen use oh-my-zsh
 
 antigen bundle copybuffer

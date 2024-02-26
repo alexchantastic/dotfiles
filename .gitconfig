@@ -6,6 +6,7 @@
     whitespace = cr-at-eol
     excludesfile = ~/.dotfiles/.gitignore_global
     pager = diff-so-fancy | less --tabs=2 -RFX
+    editor = nvim
 
 [alias]
     # general commands
