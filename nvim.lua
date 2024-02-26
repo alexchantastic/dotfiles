@@ -19,11 +19,16 @@ require("lazy").setup({
     "ibhagwan/fzf-lua",
     config = function()
       require("fzf-lua").setup({})
-    end
+    end,
   },
   "ggandor/leap.nvim",
   "machakann/vim-sandwich",
   { "numToStr/Comment.nvim", lazy = false },
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+  },
   "nvim-lualine/lualine.nvim",
   {
     "folke/which-key.nvim",
@@ -65,8 +70,8 @@ require("catppuccin").setup({
   flavour = "mocha",
   integrations = {
     leap = true,
-    sandwich = true
-  }
+    sandwich = true,
+  },
 })
 
 -- Plugin: fzf-lua
@@ -84,9 +89,35 @@ require("lualine").setup {
     icons_enabled = false,
     component_separators = { left = "", right = ""},
     section_separators = { left = "", right = ""},
-    theme = "catppuccin"
-  }
+    theme = "catppuccin",
+  },
 }
 
 -- Plugin: comment.nvim
 require("Comment").setup()
+
+-- Plugin: nvim-tree
+require("nvim-tree").setup({
+  filters = { custom = { "^.git$" } },
+  renderer = {
+    icons = {
+      show = {
+        file = false,
+        folder = false,
+        git = false,
+      },
+      glyphs = {
+        folder = {
+          arrow_open = "▾",
+          arrow_closed = "▸",
+          default = "▸",
+          open =  "▾",
+          empty = "▸",
+          empty_open = "▾",
+          symlink = "▸",
+          symlink_open = "▾",
+        },
+      },
+    },
+  },
+});
