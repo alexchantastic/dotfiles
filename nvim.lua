@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Plugins
 require("lazy").setup({
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   {
     "ibhagwan/fzf-lua",
     config = function()
@@ -23,7 +23,16 @@ require("lazy").setup({
   },
   "ggandor/leap.nvim",
   "machakann/vim-sandwich",
+  { "numToStr/Comment.nvim", lazy = false },
   "nvim-lualine/lualine.nvim",
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end
+  },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 })
 
@@ -36,6 +45,7 @@ vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.fillchars = { eob = " " }
+vim.opt.clipboard = "unnamedplus"
 
 -- Colors
 vim.opt.termguicolors = true
@@ -63,17 +73,20 @@ require("catppuccin").setup({
 vim.keymap.set("n", "<c-P>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
 vim.keymap.set("n", "<c-_>", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
 
--- Plugin: leap
-require('leap')
-vim.keymap.set({'n', 'x', 'o'}, 'f', '<Plug>(leap-forward)')
-vim.keymap.set({'n', 'x', 'o'}, 'F', '<Plug>(leap-backward)')
+-- Plugin: leap.nvim
+require("leap")
+vim.keymap.set({"n", "x", "o"}, "f", "<Plug>(leap-forward)")
+vim.keymap.set({"n", "x", "o"}, "F", "<Plug>(leap-backward)")
 
--- Plugin: lualine
-require('lualine').setup {
+-- Plugin: lualine.nvim
+require("lualine").setup {
   options = {
-      icons_enabled = false,
-      component_separators = { left = "", right = ""},
-      section_separators = { left = "", right = ""},
-      theme = "catppuccin"
+    icons_enabled = false,
+    component_separators = { left = "", right = ""},
+    section_separators = { left = "", right = ""},
+    theme = "catppuccin"
   }
 }
+
+-- Plugin: comment.nvim
+require("Comment").setup()
