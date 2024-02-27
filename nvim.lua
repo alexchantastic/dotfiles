@@ -46,6 +46,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.fillchars = { eob = " " }
 vim.opt.clipboard = "unnamedplus"
+vim.opt.inccommand = "nosplit"
 
 -- Colors
 vim.opt.termguicolors = true
