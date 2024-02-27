@@ -15,12 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugins
 require("lazy").setup({
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  {
-    "ibhagwan/fzf-lua",
-    config = function()
-      require("fzf-lua").setup({})
-    end,
-  },
+  "ibhagwan/fzf-lua",
   "ggandor/leap.nvim",
   "machakann/vim-sandwich",
   { "numToStr/Comment.nvim", lazy = false },
@@ -71,12 +66,16 @@ require("catppuccin").setup({
   integrations = {
     leap = true,
     sandwich = true,
+    nvimtree = true,
+    treesitter = true,
   },
 })
 
 -- Plugin: fzf-lua
+require("fzf-lua").setup({})
 vim.keymap.set("n", "<c-P>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
-vim.keymap.set("n", "<c-_>", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
+vim.cmd("command! Ff FzfLua files")
+vim.cmd("command! Fb FzfLua buffers")
 
 -- Plugin: leap.nvim
 require("leap")
@@ -120,4 +119,5 @@ require("nvim-tree").setup({
       },
     },
   },
-});
+})
+vim.cmd("command! T NvimTreeToggle")
