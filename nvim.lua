@@ -19,6 +19,7 @@ require("lazy").setup({
   "ggandor/leap.nvim",
   "machakann/vim-sandwich",
   { "numToStr/Comment.nvim", lazy = false },
+  "gbprod/yanky.nvim",
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
@@ -96,6 +97,17 @@ vim.cmd("command! Fgg FzfLua live_grep")
 require("leap")
 vim.keymap.set({"n", "x", "o"}, "f", "<Plug>(leap-forward)")
 vim.keymap.set({"n", "x", "o"}, "F", "<Plug>(leap-backward)")
+
+-- Plugin: yanky.nvim
+require("yanky").setup({})
+vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
+vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
+vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
+vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+vim.keymap.set("n", "<c-j>", "<Plug>(YankyPreviousEntry)")
+vim.keymap.set("n", "<c-k>", "<Plug>(YankyNextEntry)")
+vim.keymap.set({"n","x"}, "y", "<Plug>(YankyYank)")
+vim.cmd("command! Y YankyRingHistory")
 
 -- Plugin: lualine.nvim
 require("lualine").setup({
