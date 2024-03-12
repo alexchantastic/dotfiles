@@ -72,6 +72,18 @@ require("catppuccin").setup({
   },
 })
 
+-- Plugin: nvim-treesitter
+require'nvim-treesitter.configs'.setup({
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+  sync_install = false,
+  auto_install = true,
+  ignore_install = { "javascript" },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+})
+
 -- Plugin: fzf-lua
 require("fzf-lua").setup({})
 vim.keymap.set("n", "<c-P>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
@@ -80,21 +92,20 @@ vim.cmd("command! Fb FzfLua buffers")
 vim.cmd("command! Fg FzfLua lgrep_curbuf")
 vim.cmd("command! Fgg FzfLua live_grep")
 
-
 -- Plugin: leap.nvim
 require("leap")
 vim.keymap.set({"n", "x", "o"}, "f", "<Plug>(leap-forward)")
 vim.keymap.set({"n", "x", "o"}, "F", "<Plug>(leap-backward)")
 
 -- Plugin: lualine.nvim
-require("lualine").setup {
+require("lualine").setup({
   options = {
     icons_enabled = false,
     component_separators = { left = "", right = ""},
     section_separators = { left = "", right = ""},
     theme = "catppuccin",
   },
-}
+})
 
 -- Plugin: comment.nvim
 require("Comment").setup()
