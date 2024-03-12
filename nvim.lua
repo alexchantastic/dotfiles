@@ -77,6 +77,9 @@ require("fzf-lua").setup({})
 vim.keymap.set("n", "<c-P>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
 vim.cmd("command! Ff FzfLua files")
 vim.cmd("command! Fb FzfLua buffers")
+vim.cmd("command! Fg FzfLua lgrep_curbuf")
+vim.cmd("command! Fgg FzfLua live_grep")
+
 
 -- Plugin: leap.nvim
 require("leap")
