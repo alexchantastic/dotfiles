@@ -73,6 +73,10 @@ require("catppuccin").setup({
   },
 })
 
+-- Keybinds
+vim.keymap.set({ "n", "x" }, "d", "\"_d")
+vim.keymap.set({ "n", "x" }, "D", "\"_D")
+
 -- Plugin: nvim-treesitter
 if not vim.g.vscode then
   require'nvim-treesitter.configs'.setup({
@@ -97,18 +101,18 @@ vim.cmd("command! Fgg FzfLua live_grep")
 
 -- Plugin: leap.nvim
 require("leap")
-vim.keymap.set({"n", "x", "o"}, "f", "<Plug>(leap-forward)")
-vim.keymap.set({"n", "x", "o"}, "F", "<Plug>(leap-backward)")
+vim.keymap.set({ "n", "x", "o" }, "f", "<Plug>(leap-forward)")
+vim.keymap.set({ "n", "x", "o" }, "F", "<Plug>(leap-backward)")
 
 -- Plugin: yanky.nvim
 require("yanky").setup({})
-vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
-vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
-vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
-vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
+vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
 vim.keymap.set("n", "<c-j>", "<Plug>(YankyPreviousEntry)")
 vim.keymap.set("n", "<c-k>", "<Plug>(YankyNextEntry)")
-vim.keymap.set({"n","x"}, "y", "<Plug>(YankyYank)")
+vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
 vim.cmd("command! Y YankyRingHistory")
 
 -- Plugin: lualine.nvim
