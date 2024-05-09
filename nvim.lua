@@ -16,7 +16,17 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   "ibhagwan/fzf-lua",
-  "ggandor/leap.nvim",
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+    -- stylua: ignore
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    },
+  },
   "machakann/vim-sandwich",
   { "numToStr/Comment.nvim", lazy = false },
   "gbprod/yanky.nvim",
@@ -98,11 +108,6 @@ vim.cmd("command! Ff FzfLua files")
 vim.cmd("command! Fb FzfLua buffers")
 vim.cmd("command! Fg FzfLua lgrep_curbuf")
 vim.cmd("command! Fgg FzfLua live_grep")
-
--- Plugin: leap.nvim
-require("leap")
-vim.keymap.set({ "n", "x", "o" }, "f", "<Plug>(leap-forward)")
-vim.keymap.set({ "n", "x", "o" }, "F", "<Plug>(leap-backward)")
 
 -- Plugin: yanky.nvim
 require("yanky").setup({})
