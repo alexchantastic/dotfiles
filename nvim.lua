@@ -14,8 +14,15 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Plugins
 require("lazy").setup({
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  "ibhagwan/fzf-lua",
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    cond = not vim.g.vscode,
+  },
+  {
+    "ibhagwan/fzf-lua",
+    cond = not vim.g.vscode,
+  },
   {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -35,8 +42,12 @@ require("lazy").setup({
     "nvim-tree/nvim-tree.lua",
     version = "*",
     lazy = false,
+    cond = not vim.g.vscode,
   },
-  "nvim-lualine/lualine.nvim",
+  {
+    "nvim-lualine/lualine.nvim",
+    cond = not vim.g.vscode,
+  },
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -45,7 +56,12 @@ require("lazy").setup({
       vim.o.timeoutlen = 300
     end
   },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    cond = not vim.g.vscode,
+  },
 })
 
 -- Behaviors
@@ -73,23 +89,26 @@ vim.opt.si = true
 vim.opt.wrap = true
 
 -- Theme
-vim.cmd.colorscheme("catppuccin")
-require("catppuccin").setup({
-  flavour = "mocha",
-  integrations = {
-    leap = true,
-    sandwich = true,
-    nvimtree = true,
-    treesitter = true,
-  },
-})
+if not vim.g.vscode then
+  vim.cmd.colorscheme("catppuccin")
+  require("catppuccin").setup({
+    flavour = "mocha",
+    integrations = {
+      leap = true,
+      sandwich = true,
+      nvimtree = true,
+      treesitter = true,
+    },
+  })
+end
 
 -- Keybinds
 vim.keymap.set({ "n", "x" }, "d", "\"_d")
 vim.keymap.set({ "n", "x" }, "D", "\"_D")
 
--- Plugin: nvim-treesitter
+-- Plugins
 if not vim.g.vscode then
+  -- Plugin: nvim-treesitter
   require'nvim-treesitter.configs'.setup({
     ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
     sync_install = false,
@@ -107,15 +126,52 @@ if not vim.g.vscode then
       },
     },
   })
-end
 
--- Plugin: fzf-lua
-require("fzf-lua").setup({})
-vim.keymap.set("n", "<c-P>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
-vim.cmd("command! Ff FzfLua files")
-vim.cmd("command! Fb FzfLua buffers")
-vim.cmd("command! Fg FzfLua lgrep_curbuf")
-vim.cmd("command! Fgg FzfLua live_grep")
+  -- Plugin: fzf-lua
+  require("fzf-lua").setup({})
+  vim.keymap.set("n", "<c-P>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
+  vim.cmd("command! Ff FzfLua files")
+  vim.cmd("command! Fb FzfLua buffers")
+  vim.cmd("command! Fg FzfLua lgrep_curbuf")
+  vim.cmd("command! Fgg FzfLua live_grep")
+
+  -- Plugin: lualine.nvim
+  require("lualine").setup({
+    options = {
+      icons_enabled = false,
+      component_separators = { left = "", right = ""},
+      section_separators = { left = "", right = ""},
+      theme = "catppuccin",
+    },
+  })
+
+  -- Plugin: nvim-tree
+  require("nvim-tree").setup({
+    filters = { custom = { "^.git$" } },
+    renderer = {
+      icons = {
+        show = {
+          file = false,
+          folder = false,
+          git = false,
+        },
+        glyphs = {
+          folder = {
+            arrow_open = "▾",
+            arrow_closed = "▸",
+            default = "▸",
+            open =  "▾",
+            empty = "▸",
+            empty_open = "▾",
+            symlink = "▸",
+            symlink_open = "▾",
+          },
+        },
+      },
+    },
+  })
+  vim.cmd("command! T NvimTreeToggle")
+end
 
 -- Plugin: yanky.nvim
 require("yanky").setup({})
@@ -128,42 +184,5 @@ vim.keymap.set("n", "<c-k>", "<Plug>(YankyNextEntry)")
 vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
 vim.cmd("command! Y YankyRingHistory")
 
--- Plugin: lualine.nvim
-require("lualine").setup({
-  options = {
-    icons_enabled = false,
-    component_separators = { left = "", right = ""},
-    section_separators = { left = "", right = ""},
-    theme = "catppuccin",
-  },
-})
-
 -- Plugin: comment.nvim
 require("Comment").setup()
-
--- Plugin: nvim-tree
-require("nvim-tree").setup({
-  filters = { custom = { "^.git$" } },
-  renderer = {
-    icons = {
-      show = {
-        file = false,
-        folder = false,
-        git = false,
-      },
-      glyphs = {
-        folder = {
-          arrow_open = "▾",
-          arrow_closed = "▸",
-          default = "▸",
-          open =  "▾",
-          empty = "▸",
-          empty_open = "▾",
-          symlink = "▸",
-          symlink_open = "▾",
-        },
-      },
-    },
-  },
-})
-vim.cmd("command! T NvimTreeToggle")
