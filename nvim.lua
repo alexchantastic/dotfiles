@@ -30,6 +30,7 @@ require("lazy").setup({
   "machakann/vim-sandwich",
   { "numToStr/Comment.nvim", lazy = false },
   "terryma/vim-expand-region",
+  "mg979/vim-visual-multi",
   "gbprod/yanky.nvim",
   {
     "nvim-tree/nvim-tree.lua",
