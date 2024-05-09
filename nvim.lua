@@ -29,7 +29,6 @@ require("lazy").setup({
   },
   "machakann/vim-sandwich",
   { "numToStr/Comment.nvim", lazy = false },
-  "terryma/vim-expand-region",
   "mg979/vim-visual-multi",
   "gbprod/yanky.nvim",
   {
@@ -99,6 +98,13 @@ if not vim.g.vscode then
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = false,
+    },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        node_incremental = "v",
+        node_decremental = "V",
+      },
     },
   })
 end
