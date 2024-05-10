@@ -121,8 +121,8 @@ if not vim.g.vscode then
     incremental_selection = {
       enable = true,
       keymaps = {
-        node_incremental = "v",
-        node_decremental = "V",
+        node_incremental = "+",
+        node_decremental = "_",
       },
     },
   })
