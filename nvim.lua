@@ -109,6 +109,11 @@ require("lazy").setup({
     cond = not vim.g.vscode,
   },
   {
+    "gennaro-tedesco/nvim-possession",
+    config = true,
+    cond = not vim.g.vscode,
+  },
+  {
     "folke/which-key.nvim",
     event = "VeryLazy",
     init = function()
@@ -325,6 +330,19 @@ if not vim.g.vscode then
       show_end = false,
     },
   })
+
+  -- Plugin: nvim-possession
+  require("nvim-possession").setup({
+    autoload = true,
+    autoswitch = {
+      enable = true,
+    },
+  })
+
+  vim.cmd("command! Sl lua require('nvim-possession').list()<CR>")
+  vim.cmd("command! Sn lua require('nvim-possession').new()<CR>")
+  vim.cmd("command! Su lua require('nvim-possession').update()<CR>")
+  vim.cmd("command! Sd lua require('nvim-possession').delete()<CR>")
  
   -- Plugin: trouble.nvim
   require("trouble").setup()
