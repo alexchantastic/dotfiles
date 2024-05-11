@@ -26,42 +26,30 @@ require("lazy").setup({
   {
     "williamboman/mason.nvim",
     cond = not vim.g.vscode,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    cond = not vim.g.vscode,
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+    }
   },
   {
     "neovim/nvim-lspconfig",
     cond = not vim.g.vscode,
   },
   {
-    "hrsh7th/cmp-nvim-lsp",
-    cond = not vim.g.vscode,
-  },
-  {
-    "hrsh7th/cmp-buffer",
-    cond = not vim.g.vscode,
-  },
-  {
-    "hrsh7th/cmp-path",
-    cond = not vim.g.vscode,
-  },
-  {
-    "hrsh7th/cmp-cmdline",
-    cond = not vim.g.vscode,
-  },
-  {
     "hrsh7th/nvim-cmp",
     cond = not vim.g.vscode,
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp", 
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+    }
   },
   {
     "L3MON4D3/LuaSnip",
     cond = not vim.g.vscode,
-  },
-  {
-    "saadparwaiz1/cmp_luasnip",
-    cond = not vim.g.vscode,
+    dependencies = {
+      "saadparwaiz1/cmp_luasnip",
+    }
   },
   {
     "nvimtools/none-ls.nvim",
