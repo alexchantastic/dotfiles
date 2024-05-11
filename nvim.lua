@@ -95,6 +95,20 @@ require("lazy").setup({
     cond = not vim.g.vscode,
   },
   {
+    "romgrk/barbar.nvim",
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+      auto_hide = 1,
+      icons = {
+        button = '×',
+        filetype = {
+          enabled = false,
+        },
+      },
+    },
+    cond = not vim.g.vscode,
+  },
+  {
     "folke/which-key.nvim",
     event = "VeryLazy",
     init = function()
@@ -136,17 +150,22 @@ vim.opt.wrap = true
 
 -- Theme
 if not vim.g.vscode then
-  vim.cmd.colorscheme("catppuccin")
   require("catppuccin").setup({
     flavour = "mocha",
     integrations = {
-      leap = true,
       sandwich = true,
-      nvimtree = true,
-      treesitter = true,
       which_key = true,
+      barbar = true,
+      mason = true,
+      lsp_trouble = true,
+      indent_blankline = {
+        enabled = true,
+        scope_color = "overlay0",
+      },
     },
   })
+
+  vim.cmd.colorscheme("catppuccin")
 end
 
 -- Keybinds
@@ -291,6 +310,10 @@ if not vim.g.vscode then
       theme = "catppuccin",
     },
   })
+  
+  -- Plugin: barbar.nvim
+  vim.keymap.set("n", "<A-,>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
+  vim.keymap.set("n", "<A-.>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
 
   -- Plugin: indent-blankline.nvim
   require("ibl").setup({
