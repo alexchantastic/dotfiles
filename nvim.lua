@@ -76,8 +76,11 @@ require("lazy").setup({
   "gbprod/yanky.nvim",
   {
     "nvim-tree/nvim-tree.lua",
-    version = "*",
     lazy = false,
+    cond = not vim.g.vscode,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
     cond = not vim.g.vscode,
   },
   {
@@ -347,6 +350,9 @@ if not vim.g.vscode then
       show_end = false,
     },
   })
+  
+  -- Plugin: gitsigns.nvim
+  require("gitsigns").setup()
 
   -- Plugin: nvim-possession
   require("nvim-possession").setup({
