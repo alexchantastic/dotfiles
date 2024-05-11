@@ -153,6 +153,11 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.inccommand = "nosplit"
 vim.opt.shortmess = "I"
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover,
+  { border = "rounded" }
+)
+
 -- Colors
 vim.opt.termguicolors = true
 
@@ -188,6 +193,11 @@ end
 -- Keybinds
 vim.keymap.set({ "n", "x" }, "d", "\"_d")
 vim.keymap.set({ "n", "x" }, "D", "\"_D")
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+
+-- Commands
+vim.cmd("command! Format lua vim.lsp.buf.format()<CR>")
 
 -- Plugins
 if not vim.g.vscode then
@@ -283,6 +293,8 @@ if not vim.g.vscode then
       { name = "buffer" },
     })
   })
+  
+  cmp.visible_docs()
 
   cmp.setup.cmdline({ "/", "?" }, {
     mapping = cmp.mapping.preset.cmdline(),
@@ -308,7 +320,6 @@ if not vim.g.vscode then
       null_ls.builtins.formatting.prettierd,
     },
   })
-  vim.cmd("command! Format lua vim.lsp.buf.format()")
 
   -- Plugin: fzf-lua
   require("fzf-lua").setup({})
