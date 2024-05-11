@@ -85,6 +85,10 @@ require("lazy").setup({
     cond = not vim.g.vscode,
   },
   {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+  },
+  {
     "folke/which-key.nvim",
     event = "VeryLazy",
     init = function()
@@ -134,6 +138,7 @@ if not vim.g.vscode then
       sandwich = true,
       nvimtree = true,
       treesitter = true,
+      which_key = true,
     },
   })
 end
@@ -278,6 +283,17 @@ if not vim.g.vscode then
       component_separators = { left = "", right = ""},
       section_separators = { left = "", right = ""},
       theme = "catppuccin",
+    },
+  })
+
+  -- Plugin: indent-blankline.nvim
+  require("ibl").setup({
+    indent = {
+      char = "│",
+    },
+    scope = {
+      show_start = false,
+      show_end = false,
     },
   })
 
