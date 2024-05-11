@@ -140,6 +140,7 @@ vim.opt.relativenumber = true
 vim.opt.fillchars = { eob = " " }
 vim.opt.clipboard = "unnamedplus"
 vim.opt.inccommand = "nosplit"
+vim.opt.shortmess = "I"
 
 -- Colors
 vim.opt.termguicolors = true
