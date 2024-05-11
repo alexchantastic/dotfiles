@@ -15,8 +15,56 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugins
 require("lazy").setup({
   {
+    "nvim-lua/plenary.nvim",
+    cond = not vim.g.vscode,
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    cond = not vim.g.vscode,
+  },
+  {
+    "williamboman/mason.nvim",
+    cond = not vim.g.vscode,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    cond = not vim.g.vscode,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    cond = not vim.g.vscode,
+  },
+  {
+    "hrsh7th/cmp-nvim-lsp",
+    cond = not vim.g.vscode,
+  },
+  {
+    "hrsh7th/cmp-buffer",
+    cond = not vim.g.vscode,
+  },
+  {
+    "hrsh7th/cmp-path",
+    cond = not vim.g.vscode,
+  },
+  {
+    "hrsh7th/cmp-cmdline",
+    cond = not vim.g.vscode,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    cond = not vim.g.vscode,
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    cond = not vim.g.vscode,
+  },
+  {
+    "saadparwaiz1/cmp_luasnip",
+    cond = not vim.g.vscode,
+  },
+  {
+    "nvimtools/none-ls.nvim",
     cond = not vim.g.vscode,
   },
   {
@@ -109,7 +157,7 @@ vim.keymap.set({ "n", "x" }, "D", "\"_D")
 -- Plugins
 if not vim.g.vscode then
   -- Plugin: nvim-treesitter
-  require'nvim-treesitter.configs'.setup({
+  require("nvim-treesitter.configs").setup({
     ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
     sync_install = false,
     auto_install = true,
@@ -126,6 +174,106 @@ if not vim.g.vscode then
       },
     },
   })
+  
+  -- Plugin: mason.nvim
+  require("mason").setup()
+  local mason_lspconfig = require("mason-lspconfig")
+  mason_lspconfig.setup({
+    automatic_installation = true,
+  })
+  mason_lspconfig.setup_handlers({
+    function (server_name)
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        require("lspconfig")[server_name].setup({
+          capabilities = capabilities,
+        })
+    end
+  })
+
+  -- Plugin: nvim-cmp
+  local cmp = require("cmp")
+  local luasnip = require("luasnip")
+  cmp.setup({
+    snippet = {
+      expand = function(args)
+        require("luasnip").lsp_expand(args.body)
+      end,
+    },
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({
+      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ["<C-Space>"] = cmp.mapping.complete(),
+      ["<C-e>"] = cmp.mapping.abort(),
+      ["<CR>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+              if luasnip.expandable() then
+                  luasnip.expand()
+              else
+                  cmp.confirm({
+                      behavior = cmp.ConfirmBehavior.Replace,
+                      select = true,
+                  })
+              end
+          else
+              fallback()
+          end
+      end),
+      ["<Tab>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif luasnip.locally_jumpable(1) then
+          luasnip.jump(1)
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        elseif luasnip.locally_jumpable(-1) then
+          luasnip.jump(-1)
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
+    }),
+    sources = cmp.config.sources({
+      { name = "nvim_lsp" },
+      { name = "luasnip" },
+    }, {
+      { name = "buffer" },
+    })
+  })
+
+  cmp.setup.cmdline({ "/", "?" }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = "buffer" }
+    }
+  })
+
+  cmp.setup.cmdline(":", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = "path" }
+    }, {
+      { name = "cmdline" }
+    }),
+    matching = { disallow_symbol_nonprefix_matching = false }
+  })
+  
+  -- Plugin: none-ls.nvim
+  local null_ls = require("null-ls")
+  null_ls.setup({
+    sources = {
+      null_ls.builtins.formatting.prettierd,
+    },
+  })
+  vim.cmd("command! Format lua vim.lsp.buf.format()")
 
   -- Plugin: fzf-lua
   require("fzf-lua").setup({})
