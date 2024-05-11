@@ -87,6 +87,12 @@ require("lazy").setup({
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
+    cond = not vim.g.vscode,
+  },
+  {
+    "folke/trouble.nvim",
+    branch = "dev",
+    cond = not vim.g.vscode,
   },
   {
     "folke/which-key.nvim",
@@ -151,7 +157,7 @@ vim.keymap.set({ "n", "x" }, "D", "\"_D")
 if not vim.g.vscode then
   -- Plugin: nvim-treesitter
   require("nvim-treesitter.configs").setup({
-    ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown_inline" },
     sync_install = false,
     auto_install = true,
     ignore_install = { "javascript" },
@@ -296,6 +302,10 @@ if not vim.g.vscode then
       show_end = false,
     },
   })
+ 
+  -- Plugin: trouble.nvim
+  require("trouble").setup()
+  vim.cmd("command! Tr Trouble diagnostics toggle")
 
   -- Plugin: nvim-tree
   require("nvim-tree").setup({
