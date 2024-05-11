@@ -109,6 +109,14 @@ require("lazy").setup({
     cond = not vim.g.vscode,
   },
   {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+    },
+    cond = not vim.g.vscode,
+  },
+  {
     "gennaro-tedesco/nvim-possession",
     config = true,
     cond = not vim.g.vscode,
@@ -320,6 +328,14 @@ if not vim.g.vscode then
   -- Plugin: barbar.nvim
   vim.keymap.set("n", "<A-,>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
   vim.keymap.set("n", "<A-.>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
+  
+  -- Plugin: barbecue.nvim
+  require("barbecue").setup({
+    symbols = {
+      separator = "/",
+    },
+    kinds = false,
+  })
 
   -- Plugin: indent-blankline.nvim
   require("ibl").setup({
