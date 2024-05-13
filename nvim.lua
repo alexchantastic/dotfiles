@@ -26,6 +26,10 @@ vim.opt.ai = true
 vim.opt.si = true
 vim.opt.wrap = true
 
+if not vim.g.vscode then
+  vim.opt.showmode = false
+end
+
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover,
   { border = "rounded" }
@@ -334,7 +338,7 @@ require("lazy").setup({
       },
     },
     init = function()
-      vim.cmd("command! T NvimTreeToggle")
+      vim.keymap.set({ "n", "x" }, "<c-b>", "<cmd>NvimTreeToggle<cr>")
     end,
   },
   {
