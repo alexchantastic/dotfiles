@@ -32,7 +32,7 @@ end
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 
--- Keybinds
+-- Keymaps
 vim.keymap.set({ "n", "x" }, "d", '"_d')
 vim.keymap.set({ "n", "x" }, "D", '"_D')
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -40,6 +40,8 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left wind
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+vim.keymap.set("n", "<c-h>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true, desc = "Previous Buffer" })
+vim.keymap.set("n", "<c-l>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Next Buffer" })
 
 -- Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -434,13 +436,6 @@ require("lazy").setup({
 		},
 		init = function()
 			vim.g.barbar_auto_setup = false
-			vim.keymap.set(
-				"n",
-				"<c-h>",
-				"<Cmd>BufferPrevious<CR>",
-				{ noremap = true, silent = true, desc = "Previous Buffer" }
-			)
-			vim.keymap.set("n", "<c-l>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Next Buffer" })
 		end,
 	},
 	{
