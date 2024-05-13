@@ -248,24 +248,29 @@ if not vim.g.vscode then
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
     },
+    view = {
+      docs = {
+        auto_open = true,
+      },
+    },
     mapping = cmp.mapping.preset.insert({
       ["<C-b>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),
       ["<C-e>"] = cmp.mapping.abort(),
       ["<CR>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-              if luasnip.expandable() then
-                  luasnip.expand()
-              else
-                  cmp.confirm({
-                      behavior = cmp.ConfirmBehavior.Replace,
-                      select = true,
-                  })
-              end
+        if cmp.visible() then
+          if luasnip.expandable() then
+            luasnip.expand()
           else
-              fallback()
+            cmp.confirm({
+              behavior = cmp.ConfirmBehavior.Replace,
+              select = true,
+            })
           end
+        else
+          fallback()
+        end
       end),
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
@@ -294,8 +299,6 @@ if not vim.g.vscode then
     })
   })
   
-  cmp.visible_docs()
-
   cmp.setup.cmdline({ "/", "?" }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
