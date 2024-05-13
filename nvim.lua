@@ -390,8 +390,8 @@ require("lazy").setup({
     },
     init = function()
       vim.g.barbar_auto_setup = false
-      vim.keymap.set("n", "<A-,>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
-      vim.keymap.set("n", "<A-.>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
+      vim.keymap.set("n", "<c-h>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
+      vim.keymap.set("n", "<c-l>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
     end,
   },
   {
