@@ -248,23 +248,25 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     cond = not vim.g.vscode,
-    opts = {
-      ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown" },
-      sync_install = false,
-      auto_install = true,
-      ignore_install = { "javascript" },
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          node_incremental = "+",
-          node_decremental = "_",
+    config = function()
+      require('nvim-treesitter.configs').setup({
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown" },
+        sync_install = false,
+        auto_install = true,
+        ignore_install = { "javascript" },
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
         },
-      },
-    },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            node_incremental = "+",
+            node_decremental = "_",
+          },
+        },
+      })
+    end,
   },
   {
     "nvimtools/none-ls.nvim",
