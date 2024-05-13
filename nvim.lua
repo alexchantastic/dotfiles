@@ -103,8 +103,10 @@ require("lazy").setup({
       "williamboman/mason-lspconfig.nvim",
     },
     init = function()
-      vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
-      vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+      vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true, desc = "[G]oto [D]efinition" })
+      vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true, desc = "[G]oto [D]eclaration" })
+      vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true, desc = "[G]oto [R]eferences" })
+      vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover Documentation" })
     end,
     config = function()
       require("mason").setup()
