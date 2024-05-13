@@ -89,7 +89,7 @@ require("lazy").setup({
     "ibhagwan/fzf-lua",
     cond = not vim.g.vscode,
     init = function()
-      vim.keymap.set("n", "<c-P>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
+      vim.keymap.set("n", "<c-P>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true, desc = "Search files" })
       vim.cmd("command! Ff FzfLua files")
       vim.cmd("command! Fb FzfLua buffers")
       vim.cmd("command! Fg FzfLua lgrep_curbuf")
@@ -303,8 +303,8 @@ require("lazy").setup({
       vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
       vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
       vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
-      vim.keymap.set("n", "<c-j>", "<Plug>(YankyPreviousEntry)")
-      vim.keymap.set("n", "<c-k>", "<Plug>(YankyNextEntry)")
+      vim.keymap.set("n", "<leader>j", "<Plug>(YankyPreviousEntry)")
+      vim.keymap.set("n", "<leader>k", "<Plug>(YankyNextEntry)")
       vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
       vim.cmd("command! Y YankyRingHistory")
     end,
@@ -338,7 +338,7 @@ require("lazy").setup({
       },
     },
     init = function()
-      vim.keymap.set({ "n", "x" }, "<c-b>", "<cmd>NvimTreeToggle<cr>")
+      vim.keymap.set({ "n", "x" }, "<c-b>", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle Nvim Tree"})
     end,
   },
   {
@@ -390,8 +390,8 @@ require("lazy").setup({
     },
     init = function()
       vim.g.barbar_auto_setup = false
-      vim.keymap.set("n", "<c-h>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
-      vim.keymap.set("n", "<c-l>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
+      vim.keymap.set("n", "<c-h>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true, desc = "Previous Buffer" })
+      vim.keymap.set("n", "<c-l>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Next Buffer" })
     end,
   },
   {
