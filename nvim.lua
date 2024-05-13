@@ -70,12 +70,12 @@ require("lazy").setup({
 	{
 		"lewis6991/gitsigns.nvim",
 		cond = not vim.g.vscode,
-    lazy = true,
+		lazy = true,
 		opts = {},
 	},
 	{
 		"folke/which-key.nvim",
-    lazy = true,
+		lazy = true,
 		event = "VeryLazy",
 		init = function()
 			vim.o.timeout = true
@@ -165,7 +165,7 @@ require("lazy").setup({
 			"hrsh7th/cmp-cmdline",
 			{
 				"L3MON4D3/LuaSnip",
-        lazy = true,
+				lazy = true,
 				dependencies = {
 					"saadparwaiz1/cmp_luasnip",
 				},
@@ -302,8 +302,8 @@ require("lazy").setup({
 	},
 	{
 		"stevearc/conform.nvim",
-    cond = not vim.g.vscode,
-    lazy = true,
+		cond = not vim.g.vscode,
+		event = { "BufWritePre" },
 		cmd = { "ConformInfo" },
 		opts = {
 			formatters_by_ft = {
@@ -321,7 +321,7 @@ require("lazy").setup({
 	},
 	{
 		"folke/flash.nvim",
-    lazy = true,
+		lazy = true,
 		event = "VeryLazy",
 		opts = {},
 		keys = {
@@ -420,7 +420,7 @@ require("lazy").setup({
 	{
 		"folke/trouble.nvim",
 		branch = "dev",
-    lazy = true,
+		lazy = true,
 		cond = not vim.g.vscode,
 		opts = {},
 		init = function()
@@ -429,7 +429,7 @@ require("lazy").setup({
 	},
 	{
 		"romgrk/barbar.nvim",
-    lazy = true,
+		lazy = true,
 		cond = not vim.g.vscode,
 		opts = {
 			auto_hide = 1,
@@ -446,7 +446,7 @@ require("lazy").setup({
 	},
 	{
 		"utilyre/barbecue.nvim",
-    lazy = true,
+		lazy = true,
 		name = "barbecue",
 		dependencies = {
 			"SmiteshP/nvim-navic",
@@ -481,6 +481,12 @@ require("lazy").setup({
 			vim.cmd("command! Sn lua require('nvim-possession').new()<CR>")
 			vim.cmd("command! Su lua require('nvim-possession').update()<CR>")
 			vim.cmd("command! Sd lua require('nvim-possession').delete()<CR>")
+		end,
+	},
+	{
+		"echasnovski/mini.nvim",
+		config = function()
+			require("mini.move").setup()
 		end,
 	},
 })
