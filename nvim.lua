@@ -70,12 +70,11 @@ require("lazy").setup({
 	{
 		"lewis6991/gitsigns.nvim",
 		cond = not vim.g.vscode,
-		lazy = true,
+		event = "VeryLazy",
 		opts = {},
 	},
 	{
 		"folke/which-key.nvim",
-		lazy = true,
 		event = "VeryLazy",
 		init = function()
 			vim.o.timeout = true
@@ -333,7 +332,6 @@ require("lazy").setup({
 	},
 	{
 		"folke/flash.nvim",
-		lazy = true,
 		event = "VeryLazy",
 		opts = {},
 		keys = {
@@ -372,7 +370,7 @@ require("lazy").setup({
 	},
 	{
 		"nvim-tree/nvim-tree.lua",
-		lazy = true,
+		event = "VeryLazy",
 		cond = not vim.g.vscode,
 		opts = {
 			filters = { custom = { "^.git$" } },
@@ -431,7 +429,7 @@ require("lazy").setup({
 	{
 		"folke/trouble.nvim",
 		branch = "dev",
-		lazy = true,
+		event = "VeryLazy",
 		cond = not vim.g.vscode,
 		opts = {},
 		init = function()
@@ -440,7 +438,7 @@ require("lazy").setup({
 	},
 	{
 		"romgrk/barbar.nvim",
-		lazy = true,
+		event = "VeryLazy",
 		cond = not vim.g.vscode,
 		opts = {
 			auto_hide = 1,
@@ -457,7 +455,7 @@ require("lazy").setup({
 	},
 	{
 		"utilyre/barbecue.nvim",
-		lazy = true,
+		event = "VeryLazy",
 		name = "barbecue",
 		dependencies = {
 			"SmiteshP/nvim-navic",
