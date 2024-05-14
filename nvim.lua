@@ -85,6 +85,7 @@ require("lazy").setup({
 		"ibhagwan/fzf-lua",
 		cond = not vim.g.vscode,
 		init = function()
+			require("fzf-lua").register_ui_select()
 			vim.keymap.set(
 				"n",
 				"<c-P>",
