@@ -285,7 +285,7 @@ require("lazy").setup({
 		cond = not vim.g.vscode,
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown" },
+				ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
 				sync_install = false,
 				auto_install = true,
 				ignore_install = { "javascript" },
@@ -301,6 +301,13 @@ require("lazy").setup({
 					},
 				},
 			})
+
+			vim.filetype.add({
+				extension = {
+					mdx = "mdx",
+				},
+			})
+			vim.treesitter.language.register("markdown", "mdx")
 		end,
 	},
 	{
