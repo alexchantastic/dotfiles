@@ -104,7 +104,11 @@ require("lazy").setup({
 		dependencies = {
 			{
 				"williamboman/mason.nvim",
-				config = true,
+				opts = {
+					ui = {
+						border = "rounded",
+					},
+				},
 			},
 			"williamboman/mason-lspconfig.nvim",
 		},
@@ -487,5 +491,27 @@ require("lazy").setup({
 			require("mini.move").setup()
 			require("mini.surround").setup()
 		end,
+	},
+}, {
+	install = {
+		colorscheme = { "catppuccin" },
+	},
+	ui = {
+		border = "rounded",
+		icons = {
+			cmd = "⌘",
+			config = "🛠",
+			event = "📅",
+			ft = "📂",
+			init = "⚙",
+			keys = "🗝",
+			plugin = "🔌",
+			runtime = "💻",
+			require = "🌙",
+			source = "📄",
+			start = "🚀",
+			task = "📌",
+			lazy = "💤 ",
+		},
 	},
 })
