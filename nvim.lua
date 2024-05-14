@@ -261,7 +261,6 @@ require("lazy").setup({
 		opts = {
 			flavour = "mocha",
 			integrations = {
-				sandwich = true,
 				which_key = true,
 				barbar = true,
 				mason = true,
@@ -343,7 +342,6 @@ require("lazy").setup({
 			},
 		},
 	},
-	"machakann/vim-sandwich",
 	"mg979/vim-visual-multi",
 	{
 		"gbprod/yanky.nvim",
@@ -487,6 +485,7 @@ require("lazy").setup({
 		"echasnovski/mini.nvim",
 		config = function()
 			require("mini.move").setup()
+			require("mini.surround").setup()
 		end,
 	},
 })
