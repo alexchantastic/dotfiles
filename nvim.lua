@@ -455,6 +455,17 @@ require("lazy").setup({
         filetype = {
           enabled = false,
         },
+        separator = {
+          left = "",
+          right = "",
+        },
+        separator_at_end = false,
+        inactive = {
+          separator = {
+            left = "",
+            right = "",
+          }
+        }
       },
     },
     init = function()
