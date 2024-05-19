@@ -264,6 +264,9 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     opts = {
       flavour = "mocha",
+      styles = {
+        conditionals = {},
+      },
       integrations = {
         which_key = true,
         barbar = true,
