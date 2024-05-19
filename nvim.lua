@@ -469,20 +469,6 @@ require("lazy").setup({
     end,
   },
   {
-    "utilyre/barbecue.nvim",
-    event = "VeryLazy",
-    name = "barbecue",
-    dependencies = {
-      "SmiteshP/nvim-navic",
-    },
-    cond = not vim.g.vscode,
-    opts = {
-      symbols = {
-        separator = "/",
-      },
-    },
-  },
-  {
     "rmagatti/auto-session",
     cond = not vim.g.vscode,
     opts = {},
