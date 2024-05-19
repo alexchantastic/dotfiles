@@ -1,7 +1,7 @@
 -- Behaviors
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -61,6 +61,10 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   {
     "nvim-lua/plenary.nvim",
+    cond = not vim.g.vscode,
+  },
+  {
+    "nvim-tree/nvim-web-devicons",
     cond = not vim.g.vscode,
   },
   {
@@ -382,27 +386,6 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     opts = {
       filters = { custom = { "^.git$" } },
-      renderer = {
-        icons = {
-          show = {
-            file = false,
-            folder = false,
-            git = false,
-          },
-          glyphs = {
-            folder = {
-              arrow_open = "▾",
-              arrow_closed = "▸",
-              default = "▸",
-              open = "▾",
-              empty = "▸",
-              empty_open = "▾",
-              symlink = "▸",
-              symlink_open = "▾",
-            },
-          },
-        },
-      },
     },
     init = function()
       vim.keymap.set({ "n", "x" }, "<c-b>", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle Nvim Tree" })
@@ -413,7 +396,6 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     opts = {
       options = {
-        icons_enabled = false,
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         theme = "catppuccin",
@@ -452,9 +434,6 @@ require("lazy").setup({
       auto_hide = 1,
       icons = {
         button = "×",
-        filetype = {
-          enabled = false,
-        },
         separator = {
           left = "",
           right = "",
@@ -484,7 +463,6 @@ require("lazy").setup({
       symbols = {
         separator = "/",
       },
-      kinds = false,
     },
   },
   {
@@ -518,20 +496,5 @@ require("lazy").setup({
   },
   ui = {
     border = "rounded",
-    icons = {
-      cmd = "⌘",
-      config = "🛠",
-      event = "📅",
-      ft = "📂",
-      init = "⚙",
-      keys = "🗝",
-      plugin = "🔌",
-      runtime = "💻",
-      require = "🌙",
-      source = "📄",
-      start = "🚀",
-      task = "📌",
-      lazy = "💤 ",
-    },
   },
 })
