@@ -413,6 +413,7 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     opts = {
       options = {
+        icons_enabled = false,
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         theme = "catppuccin",
