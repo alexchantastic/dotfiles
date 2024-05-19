@@ -68,10 +68,6 @@ require("lazy").setup({
     cond = not vim.g.vscode,
   },
   {
-    "numToStr/Comment.nvim",
-    opts = {},
-  },
-  {
     "lewis6991/gitsigns.nvim",
     cond = not vim.g.vscode,
     event = "VeryLazy",
