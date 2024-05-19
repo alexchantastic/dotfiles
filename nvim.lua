@@ -488,6 +488,7 @@ require("lazy").setup({
           update_n_lines = "ns",
         },
       })
+      require('mini.pairs').setup()
     end,
   },
 }, {
