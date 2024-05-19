@@ -273,6 +273,7 @@ require("lazy").setup({
         barbar = true,
         mason = true,
         lsp_trouble = true,
+        neotree = true,
         indent_blankline = {
           enabled = true,
           scope_color = "overlay0",
@@ -381,14 +382,30 @@ require("lazy").setup({
     end,
   },
   {
-    "nvim-tree/nvim-tree.lua",
-    event = "VeryLazy",
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
     cond = not vim.g.vscode,
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
     opts = {
-      filters = { custom = { "^.git$" } },
+      auto_clean_after_session_restore = true,
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_by_name = {
+            ".git",
+          },
+        },
+        follow_current_file = {
+          enabled = true,
+        },
+      },
     },
     init = function()
-      vim.keymap.set({ "n", "x" }, "<c-b>", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle Nvim Tree" })
+      vim.keymap.set({ "n", "x" }, "<c-b>", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neo-tree" })
     end,
   },
   {
@@ -433,7 +450,6 @@ require("lazy").setup({
     opts = {
       auto_hide = 1,
       icons = {
-        button = "×",
         separator = {
           left = "",
           right = "",
@@ -470,6 +486,7 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     opts = {},
     init = function()
+      vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
       vim.cmd("command! Fs Autosession search")
     end,
   },
