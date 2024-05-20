@@ -97,6 +97,15 @@ require("lazy").setup({
       vim.cmd("command! Fg FzfLua lgrep_curbuf")
       vim.cmd("command! Fgg FzfLua live_grep")
     end,
+    config = function()
+      require("fzf-lua").setup({
+        actions = {
+          files = {
+            ["default"] = require("fzf-lua.actions").file_edit
+          },
+        },
+      })
+    end,
   },
   {
     "neovim/nvim-lspconfig",
