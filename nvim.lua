@@ -491,7 +491,10 @@ require("lazy").setup({
           update_n_lines = "ns",
         },
       })
-      require('mini.pairs').setup()
+      require("mini.ai").setup()
+      if not vim.g.vscode then
+        require("mini.pairs").setup()
+      end
     end,
   },
 }, {
