@@ -459,6 +459,9 @@ require("lazy").setup({
 				},
 			},
 		},
+		init = function()
+			vim.g.barbar_auto_setup = false
+		end,
 	},
 	{
 		"rmagatti/auto-session",
