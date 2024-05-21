@@ -25,6 +25,8 @@ vim.opt.tabstop = 2
 vim.opt.ai = true
 vim.opt.si = true
 vim.opt.wrap = true
+vim.opt.timeout = true
+vim.opt.timeoutlen = 300
 
 if not vim.g.vscode then
 	vim.opt.showmode = false
@@ -67,21 +69,27 @@ require("lazy").setup({
 	{
 		"lewis6991/gitsigns.nvim",
 		cond = not vim.g.vscode,
-		event = "BufReadPre",
+		event = "BufReadPost",
 		opts = {},
 	},
 	{
 		"folke/which-key.nvim",
 		cmd = "WhichKey",
-		init = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-		end,
 	},
 	{
 		"ibhagwan/fzf-lua",
 		cond = not vim.g.vscode,
-		event = "VeryLazy",
+		cmd = { "FzfLua", "Ff", "Fb", "Fg", "Fgg", "Fs", "Y" },
+		keys = {
+			{
+				"<c-p>",
+				mode = { "n" },
+				function()
+					require("fzf-lua").files()
+				end,
+				desc = "Search files",
+			},
+		},
 		config = function()
 			require("fzf-lua").setup({
 				actions = {
@@ -91,12 +99,6 @@ require("lazy").setup({
 				},
 			})
 			require("fzf-lua").register_ui_select()
-			vim.keymap.set(
-				"n",
-				"<c-P>",
-				"<cmd>lua require('fzf-lua').files()<CR>",
-				{ silent = true, desc = "Search files" }
-			)
 			vim.cmd("command! Ff FzfLua files")
 			vim.cmd("command! Fb FzfLua buffers")
 			vim.cmd("command! Fg FzfLua lgrep_curbuf")
@@ -106,7 +108,7 @@ require("lazy").setup({
 	{
 		"neovim/nvim-lspconfig",
 		cond = not vim.g.vscode,
-		event = "BufReadPre",
+		event = "BufReadPost",
 		dependencies = {
 			{
 				"williamboman/mason.nvim",
@@ -167,7 +169,7 @@ require("lazy").setup({
 	{
 		"hrsh7th/nvim-cmp",
 		cond = not vim.g.vscode,
-		event = "VeryLazy",
+		event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -268,6 +270,7 @@ require("lazy").setup({
 		name = "catppuccin",
 		priority = 1000,
 		cond = not vim.g.vscode,
+		event = "VeryLazy",
 		opts = {
 			flavour = "mocha",
 			styles = {
@@ -293,7 +296,7 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		cond = not vim.g.vscode,
-		event = "BufReadPre",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
@@ -325,33 +328,33 @@ require("lazy").setup({
 		"stevearc/conform.nvim",
 		cond = not vim.g.vscode,
 		event = "BufWritePre",
-		cmd = "ConformInfo",
-		opts = {
-			formatters_by_ft = {
-				lua = { "stylua" },
-				javascript = { { "prettierd", "prettier" } },
-				javascriptreact = { { "prettierd", "prettier" } },
-				typescript = { { "prettierd", "prettier" } },
-				typescriptreact = { { "prettierd", "prettier" } },
-				css = { { "prettierd", "prettier" } },
-				html = { { "prettierd", "prettier" } },
-				json = { { "prettierd", "prettier" } },
-				yaml = { { "prettierd", "prettier" } },
-				markdown = { { "prettierd", "prettier" } },
-				["markdown.mdx"] = { { "prettierd", "prettier" } },
-			},
-			format_on_save = {
-				timeout_ms = 500,
-				lsp_fallback = true,
-			},
-		},
-		init = function()
+		cmd = { "ConformInfo", "Format" },
+		config = function()
+			require("conform").setup({
+				formatters_by_ft = {
+					lua = { "stylua" },
+					javascript = { { "prettierd", "prettier" } },
+					javascriptreact = { { "prettierd", "prettier" } },
+					typescript = { { "prettierd", "prettier" } },
+					typescriptreact = { { "prettierd", "prettier" } },
+					css = { { "prettierd", "prettier" } },
+					html = { { "prettierd", "prettier" } },
+					json = { { "prettierd", "prettier" } },
+					yaml = { { "prettierd", "prettier" } },
+					markdown = { { "prettierd", "prettier" } },
+					["markdown.mdx"] = { { "prettierd", "prettier" } },
+				},
+				format_on_save = {
+					timeout_ms = 500,
+					lsp_fallback = true,
+				},
+			})
 			vim.cmd("command! Format lua require('conform').format()<CR>")
 		end,
 	},
 	{
 		"folke/flash.nvim",
-		event = "VeryLazy",
+		event = "BufReadPost",
 		opts = {},
 		keys = {
 			{
@@ -374,20 +377,22 @@ require("lazy").setup({
 	},
 	{
 		"mg979/vim-visual-multi",
-		event = "BufReadPre",
+		event = "BufReadPost",
 	},
 	{
 		"gbprod/yanky.nvim",
-		event = "VeryLazy",
-		opts = {},
-		init = function()
-			vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
-			vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
-			vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
-			vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
-			vim.keymap.set("n", "<leader>j", "<Plug>(YankyPreviousEntry)")
-			vim.keymap.set("n", "<leader>k", "<Plug>(YankyNextEntry)")
-			vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
+		cmd = "Y",
+		keys = {
+			{ "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank text" },
+			{ "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" }, desc = "Put yanked text after cursor" },
+			{ "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" }, desc = "Put yanked text before cursor" },
+			{ "gp", "<Plug>(YankyGPutAfter)", mode = { "n", "x" }, desc = "Put yanked text after selection" },
+			{ "gP", "<Plug>(YankyGPutBefore)", mode = { "n", "x" }, desc = "Put yanked text before selection" },
+			{ "<leader>j", "<Plug>(YankyPreviousEntry)", desc = "Select previous entry through yank history" },
+			{ "<leader>k", "<Plug>(YankyNextEntry)", desc = "Select next entry through yank history" },
+		},
+		config = function()
+			require("yanky").setup()
 			vim.cmd("command! Y YankyRingHistory")
 		end,
 	},
@@ -395,7 +400,17 @@ require("lazy").setup({
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
 		cond = not vim.g.vscode,
-		event = "VeryLazy",
+		cmd = "Neotree",
+		keys = {
+			{
+				"<c-b>",
+				mode = { "n", "x" },
+				function()
+					require("neo-tree.command").execute({ toggle = true })
+				end,
+				desc = "Toggle Neo-tree",
+			},
+		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
@@ -414,9 +429,6 @@ require("lazy").setup({
 				},
 			},
 		},
-		config = function()
-			vim.keymap.set({ "n", "x" }, "<c-b>", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neo-tree" })
-		end,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
@@ -435,7 +447,7 @@ require("lazy").setup({
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		cond = not vim.g.vscode,
-		event = "BufReadPre",
+		event = "BufReadPost",
 		opts = {
 			indent = {
 				char = "│",
@@ -450,15 +462,15 @@ require("lazy").setup({
 		"folke/trouble.nvim",
 		branch = "dev",
 		cond = not vim.g.vscode,
-		event = "VeryLazy",
-		opts = {},
-		init = function()
+		cmd = { "Trouble", "TroubleToggle", "Tr" },
+		config = function()
+			require("trouble").setup()
 			vim.cmd("command! Tr Trouble diagnostics toggle")
 		end,
 	},
 	{
 		"romgrk/barbar.nvim",
-		event = "BufReadPost",
+		event = "VeryLazy",
 		cond = not vim.g.vscode,
 		opts = {
 			auto_hide = 1,
@@ -476,22 +488,19 @@ require("lazy").setup({
 				},
 			},
 		},
-		init = function()
-			vim.g.barbar_auto_setup = false
-		end,
 	},
 	{
 		"rmagatti/auto-session",
 		cond = not vim.g.vscode,
-		opts = {},
-		init = function()
+		config = function()
+			require("auto-session").setup()
 			vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 			vim.cmd("command! Fs Autosession search")
 		end,
 	},
 	{
 		"echasnovski/mini.nvim",
-		event = "BufReadPre",
+		event = "BufReadPost",
 		config = function()
 			require("mini.move").setup()
 			require("mini.surround").setup({
