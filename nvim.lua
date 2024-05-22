@@ -79,7 +79,7 @@ require("lazy").setup({
 	{
 		"ibhagwan/fzf-lua",
 		cond = not vim.g.vscode,
-		cmd = { "FzfLua", "Ff", "Fb", "Fg", "Fgg", "Fs", "Y" },
+		cmd = { "FzfLua", "Fz", "Ff", "Fb", "Fg", "Fgg", "Fs", "Y" },
 		keys = {
 			{
 				"<c-p>",
@@ -99,6 +99,7 @@ require("lazy").setup({
 				},
 			})
 			require("fzf-lua").register_ui_select()
+			vim.cmd("command! Fz FzfLua builtin")
 			vim.cmd("command! Ff FzfLua files")
 			vim.cmd("command! Fb FzfLua buffers")
 			vim.cmd("command! Fg FzfLua lgrep_curbuf")
