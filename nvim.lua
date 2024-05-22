@@ -79,7 +79,7 @@ require("lazy").setup({
 	{
 		"ibhagwan/fzf-lua",
 		cond = not vim.g.vscode,
-		cmd = { "FzfLua", "Fz", "Ff", "Fb", "Fg", "Fgg", "Fs", "Y" },
+		cmd = { "FzfLua", "Fz", "Ff", "Fb", "Fg", "Fgg", "Fs", "Fy" },
 		keys = {
 			{
 				"<c-p>",
@@ -353,7 +353,7 @@ require("lazy").setup({
 	},
 	{
 		"gbprod/yanky.nvim",
-		cmd = "Y",
+		cmd = "Fy",
 		keys = {
 			{ "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank text" },
 			{ "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" }, desc = "Put yanked text after cursor" },
@@ -365,7 +365,7 @@ require("lazy").setup({
 		},
 		config = function()
 			require("yanky").setup()
-			vim.cmd("command! Y YankyRingHistory")
+			vim.cmd("command! Fy YankyRingHistory")
 		end,
 	},
 	{
