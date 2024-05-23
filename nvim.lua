@@ -39,7 +39,10 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { 
 
 -- Keymaps
 vim.keymap.set({ "n", "x" }, "d", '"_d')
+vim.keymap.set({ "n", "x" }, "<leader>d", "d")
 vim.keymap.set({ "n", "x" }, "D", '"_D')
+vim.keymap.set({ "n", "x" }, "<leader>D", "D")
+vim.keymap.set({ "n", "x" }, "<leader>x", '"_x')
 vim.keymap.set("n", "<Esc>", function()
 	vim.cmd("nohlsearch")
 	local flash_state = require("flash.plugins.char").state
