@@ -504,7 +504,7 @@ require("lazy").setup({
           find_left = "Fs",
           highlight = "hs",
           replace = "rs",
-          update_n_lines = "ns",
+          update_n_lines = "",
         },
       })
       require("mini.ai").setup()
