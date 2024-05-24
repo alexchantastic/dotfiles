@@ -101,6 +101,14 @@ require("lazy").setup({
 				end,
 				desc = "Search files",
 			},
+			{
+				"<leader>ca",
+				mode = { "n" },
+				function()
+					require("fzf-lua").lsp_code_actions()
+				end,
+				desc = "Code actions",
+			},
 		},
 		config = function()
 			require("fzf-lua").setup({
