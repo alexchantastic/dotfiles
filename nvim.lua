@@ -357,6 +357,27 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"mfussenegger/nvim-lint",
+		cond = not vim.g.vscode,
+		event = "BufWritePost",
+		cmd = "Lint",
+		config = function()
+			local lint = require("lint")
+			lint.linters_by_ft = {
+				javascript = { "eslint_d" },
+				javascriptreact = { "eslint_d" },
+				typescript = { "eslint_d" },
+				typescriptreact = { "eslint_d" },
+			}
+			vim.cmd("command! Lint lua require('lint').try_lint()<CR>")
+			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+				callback = function()
+					lint.try_lint()
+				end,
+			})
+		end,
+	},
+	{
 		"folke/flash.nvim",
 		event = "BufReadPost",
 		opts = {},
