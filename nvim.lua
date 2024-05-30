@@ -534,7 +534,6 @@ require("lazy").setup({
 	},
 	{
 		"folke/trouble.nvim",
-		branch = "dev",
 		cond = not vim.g.vscode,
 		cmd = { "Trouble", "TroubleToggle", "Tr" },
 		config = function()
