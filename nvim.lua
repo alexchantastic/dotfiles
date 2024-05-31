@@ -231,14 +231,14 @@ require("lazy").setup({
 						end
 					end),
 					["<C-j>"] = cmp.mapping(function(fallback)
-						if cmp.visisble() then
+						if cmp.visible() then
 							cmp.select_next_item()
 						else
 							fallback()
 						end
 					end, { "i", "s" }),
 					["<C-k>"] = cmp.mapping(function(fallback)
-						if cmp.visisble() then
+						if cmp.visible() then
 							cmp.select_prev_item()
 						else
 							fallback()
