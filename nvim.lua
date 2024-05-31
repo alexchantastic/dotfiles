@@ -130,6 +130,7 @@ require("lazy").setup({
 		"neovim/nvim-lspconfig",
 		cond = not vim.g.vscode,
 		event = "BufReadPost",
+		version = "*",
 		dependencies = {
 			{
 				"williamboman/mason.nvim",
