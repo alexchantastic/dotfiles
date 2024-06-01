@@ -668,19 +668,13 @@ require("lazy").setup({
 		event = "BufReadPost",
 		config = function()
 			require("mini.move").setup()
-			require("mini.surround").setup({
-				mappings = {
-					add = "<Leader>wa",
-					delete = "<Leader>wd",
-					find = "<Leader>wf",
-					find_left = "<Leader>wF",
-					highlight = "<Leader>wH",
-					replace = "<Leader>wr",
-					update_n_lines = "<Leader>wn",
-				},
-			})
 			require("mini.ai").setup()
 		end,
+	},
+	{
+		"kylechui/nvim-surround",
+		event = "BufReadPost",
+		opts = {},
 	},
 	{
 		"windwp/nvim-ts-autotag",
