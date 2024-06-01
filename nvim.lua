@@ -52,7 +52,8 @@ vim.keymap.set("n", "<Esc>", function()
 end)
 vim.keymap.set("n", "<c-h>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true, desc = "Previous Buffer" })
 vim.keymap.set("n", "<c-l>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Next Buffer" })
-vim.keymap.set("n", "<leader><leader>", "<Cmd>b#<CR>", { desc = "Last Buffer" })
+vim.keymap.set("n", "<leader><leader>", "<Cmd>buffer#<CR>", { desc = "Last Buffer" })
+vim.keymap.set("n", "<c-s>", "<Cmd>write<CR>", { desc = "Write file" })
 
 -- Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
