@@ -102,6 +102,14 @@ require("lazy").setup({
 				desc = "Search files",
 			},
 			{
+				"<c-k>",
+				mode = { "n" },
+				function()
+					require("fzf-lua").builtin()
+				end,
+				desc = "Search commands",
+			},
+			{
 				"<leader>ca",
 				mode = { "n" },
 				function()
