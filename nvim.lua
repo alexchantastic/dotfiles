@@ -604,6 +604,10 @@ require("lazy").setup({
 			end
 		end,
 	},
+	{
+		"windwp/nvim-ts-autotag",
+		opts = {},
+	},
 }, {
 	install = {
 		colorscheme = { "catppuccin" },
