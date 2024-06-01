@@ -30,6 +30,8 @@ vim.opt.wrap = true
 vim.opt.timeout = true
 vim.opt.timeoutlen = 300
 vim.opt.scrolloff = 10
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 if not vim.g.vscode then
 	vim.opt.showmode = false
@@ -38,22 +40,61 @@ end
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 
 -- Keymaps
-vim.keymap.set({ "n", "x" }, "d", '"_d')
-vim.keymap.set({ "n", "x" }, "<leader>d", "d")
-vim.keymap.set({ "n", "x" }, "D", '"_D')
-vim.keymap.set({ "n", "x" }, "<leader>D", "D")
-vim.keymap.set({ "n", "x" }, "<leader>x", '"_x')
+vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true, desc = "Go to left window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true, desc = "Go to lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true, desc = "Go to upper window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true, desc = "Go to right window" })
+vim.keymap.set("n", "<C-Up>", "<Cmd>resize +2<CR>", { noremap = true, silent = true, desc = "Increase window height" })
+vim.keymap.set(
+	"n",
+	"<C-Down>",
+	"<Cmd>resize -2<CR>",
+	{ noremap = true, silent = true, desc = "Decrease window height" }
+)
+vim.keymap.set(
+	"n",
+	"<C-Left>",
+	"<Cmd>vertical resize -2<CR>",
+	{ noremap = true, silent = true, desc = "Decrease window width" }
+)
+vim.keymap.set(
+	"n",
+	"<C-Right>",
+	"<Cmd>vertical resize +2<CR>",
+	{ noremap = true, silent = true, desc = "Increase window width" }
+)
+vim.keymap.set({ "n", "v", "x" }, "d", '"_d', { noremap = true, silent = true, desc = "Delete character" })
+vim.keymap.set({ "n", "v", "x" }, "<Leader>d", "d", { noremap = true, silent = true, desc = "Delete character" })
+vim.keymap.set({ "n", "v", "x" }, "D", '"_D', { noremap = true, silent = true, desc = "Delete to end of line" })
+vim.keymap.set({ "n", "v", "x" }, "<Leader>D", "D", { noremap = true, silent = true, desc = "Delete to end of line" })
+vim.keymap.set({ "n", "v", "x" }, "<Leader>x", '"_x', { noremap = true, silent = true, desc = "Cut character" })
 vim.keymap.set("n", "<Esc>", function()
 	vim.cmd("nohlsearch")
 	local flash_state = require("flash.plugins.char").state
 	if flash_state ~= nil then
 		flash_state:hide()
 	end
-end)
-vim.keymap.set("n", "<c-h>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true, desc = "Previous Buffer" })
-vim.keymap.set("n", "<c-l>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Next Buffer" })
-vim.keymap.set("n", "<leader><leader>", "<Cmd>buffer#<CR>", { desc = "Last Buffer" })
-vim.keymap.set("n", "<c-s>", "<Cmd>write<CR>", { desc = "Write file" })
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<S-h>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
+vim.keymap.set("n", "<S-l>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
+vim.keymap.set(
+	"n",
+	"<Leader><Leader>",
+	"<Cmd>buffer#<CR>",
+	{ noremap = true, silent = true, desc = "Alternate buffer" }
+)
+vim.keymap.set({ "n", "i" }, "<C-w>", "<Cmd>BufferClose<CR>", { noremap = true, silent = true, desc = "Close buffer" })
+vim.keymap.set("n", "<Leader>br", "<Cmd>BufferRestore<CR>", { noremap = true, silent = true, desc = "Restore buffer" })
+vim.keymap.set(
+	"n",
+	"<Leader>bc",
+	"<Cmd>BufferCloseAllButCurrent<CR>",
+	{ noremap = true, silent = true, desc = "Close all other buffers" }
+)
+vim.keymap.set("n", "<Leader>bp", "<Cmd>BufferPick<CR>", { noremap = true, silent = true, desc = "Pick buffer" })
+vim.keymap.set({ "n", "i" }, "<C-s>", "<Cmd>write<CR>", { noremap = true, silent = true, desc = "Write file" })
+vim.keymap.set({ "v", "x" }, "<", "<gv^", { noremap = true, silent = true, desc = "Indent right" })
+vim.keymap.set({ "v", "x" }, ">", ">gv^", { noremap = true, silent = true, desc = "Indent left" })
 
 -- Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -92,11 +133,13 @@ require("lazy").setup({
 		cmd = { "FzfLua", "Fz", "Ff", "Fb", "Fg", "Fgg", "Fs", "Fy" },
 		keys = {
 			{
-				"<c-p>",
+				"<C-p>",
 				mode = { "n" },
 				function()
 					require("fzf-lua").files()
 				end,
+				noremap = true,
+				silent = true,
 				desc = "Search files",
 			},
 			{
@@ -105,14 +148,18 @@ require("lazy").setup({
 				function()
 					require("fzf-lua").builtin()
 				end,
+				noremap = true,
+				silent = true,
 				desc = "Search commands",
 			},
 			{
-				"<leader>ca",
+				"<Leader>ca",
 				mode = { "n" },
 				function()
 					require("fzf-lua").lsp_code_actions()
 				end,
+				noremap = true,
+				silent = true,
 				desc = "Code actions",
 			},
 		},
@@ -130,6 +177,7 @@ require("lazy").setup({
 			vim.cmd("command! Fb FzfLua buffers")
 			vim.cmd("command! Fg FzfLua lgrep_curbuf")
 			vim.cmd("command! Fgg FzfLua live_grep")
+			vim.cmd("command! Fca FzfLua lsp_code_actions")
 		end,
 	},
 	{
@@ -176,22 +224,22 @@ require("lazy").setup({
 			vim.keymap.set(
 				"n",
 				"gd",
-				"<cmd>lua vim.lsp.buf.definition()<CR>",
-				{ noremap = true, silent = true, desc = "[G]oto [D]efinition" }
+				"<Cmd>lua vim.lsp.buf.definition()<CR>",
+				{ noremap = true, silent = true, desc = "Goto definition" }
 			)
 			vim.keymap.set(
 				"n",
 				"gD",
-				"<cmd>lua vim.lsp.buf.declaration()<CR>",
-				{ noremap = true, silent = true, desc = "[G]oto [D]eclaration" }
+				"<Cmd>lua vim.lsp.buf.declaration()<CR>",
+				{ noremap = true, silent = true, desc = "Goto declaration" }
 			)
 			vim.keymap.set(
 				"n",
 				"gr",
-				"<cmd>lua vim.lsp.buf.references()<CR>",
-				{ noremap = true, silent = true, desc = "[G]oto [R]eferences" }
+				"<Cmd>lua vim.lsp.buf.references()<CR>",
+				{ noremap = true, silent = true, desc = "Goto references" }
 			)
-			vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover Documentation" })
+			vim.keymap.set("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover documentation" })
 		end,
 	},
 	{
@@ -395,6 +443,8 @@ require("lazy").setup({
 				function()
 					require("flash").jump()
 				end,
+				noremap = true,
+				silent = true,
 				desc = "Flash",
 			},
 			{
@@ -403,6 +453,8 @@ require("lazy").setup({
 				function()
 					require("flash").treesitter()
 				end,
+				noremap = true,
+				silent = true,
 				desc = "Flash Treesitter",
 			},
 			{
@@ -411,6 +463,8 @@ require("lazy").setup({
 				function()
 					require("flash").remote()
 				end,
+				noremap = true,
+				silent = true,
 				desc = "Remote Flash",
 			},
 			{
@@ -419,14 +473,18 @@ require("lazy").setup({
 				function()
 					require("flash").treesitter_search()
 				end,
+				noremap = true,
+				silent = true,
 				desc = "Treesitter Search",
 			},
 			{
-				"<c-s>",
+				"<C-s>",
 				mode = { "c" },
 				function()
 					require("flash").toggle()
 				end,
+				noremap = true,
+				silent = true,
 				desc = "Toggle Flash Search",
 			},
 		},
@@ -443,34 +501,56 @@ require("lazy").setup({
 				"y",
 				"<Plug>(YankyYank)",
 				mode = { "n", "x" },
+				noremap = true,
+				silent = true,
 				desc = "Yank text",
 			},
 			{
 				"p",
 				"<Plug>(YankyPutAfter)",
 				mode = { "n", "x" },
+				noremap = true,
+				silent = true,
 				desc = "Put yanked text after cursor",
 			},
 			{
 				"P",
 				"<Plug>(YankyPutBefore)",
 				mode = { "n", "x" },
+				noremap = true,
+				silent = true,
 				desc = "Put yanked text before cursor",
 			},
 			{
 				"gp",
 				"<Plug>(YankyGPutAfter)",
 				mode = { "n", "x" },
+				noremap = true,
+				silent = true,
 				desc = "Put yanked text after selection",
 			},
 			{
 				"gP",
 				"<Plug>(YankyGPutBefore)",
 				mode = { "n", "x" },
+				noremap = true,
+				silent = true,
 				desc = "Put yanked text before selection",
 			},
-			{ "<leader>j", "<Plug>(YankyPreviousEntry)", desc = "Select previous entry through yank history" },
-			{ "<leader>k", "<Plug>(YankyNextEntry)", desc = "Select next entry through yank history" },
+			{
+				"<Leader>j",
+				"<Plug>(YankyPreviousEntry)",
+				noremap = true,
+				silent = true,
+				desc = "Select previous entry through yank history",
+			},
+			{
+				"<Leader>k",
+				"<Plug>(YankyNextEntry)",
+				noremap = true,
+				silent = true,
+				desc = "Select next entry through yank history",
+			},
 		},
 		config = function()
 			require("yanky").setup()
@@ -484,13 +564,14 @@ require("lazy").setup({
 		cmd = "Neotree",
 		keys = {
 			{
-				"<leader>b",
+				"<Leader>t",
 				mode = { "n", "x" },
 				function()
 					require("neo-tree.command").execute({ toggle = true })
 				end,
+				noremap = true,
+				silent = true,
 				desc = "Toggle Neo-tree",
-				remap = true,
 			},
 		},
 		dependencies = {
@@ -589,13 +670,13 @@ require("lazy").setup({
 			require("mini.move").setup()
 			require("mini.surround").setup({
 				mappings = {
-					add = "as",
-					delete = "ds",
-					find = "fs",
-					find_left = "Fs",
-					highlight = "hs",
-					replace = "rs",
-					update_n_lines = "",
+					add = "<Leader>wa",
+					delete = "<Leader>wd",
+					find = "<Leader>wf",
+					find_left = "<Leader>wF",
+					highlight = "<Leader>wH",
+					replace = "<Leader>wr",
+					update_n_lines = "<Leader>wn",
 				},
 			})
 			require("mini.ai").setup()
