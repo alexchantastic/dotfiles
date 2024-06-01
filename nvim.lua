@@ -599,13 +599,17 @@ require("lazy").setup({
 				},
 			})
 			require("mini.ai").setup()
-			if not vim.g.vscode then
-				require("mini.pairs").setup()
-			end
 		end,
 	},
 	{
 		"windwp/nvim-ts-autotag",
+		cond = not vim.g.vscode,
+		opts = {},
+	},
+	{
+		"windwp/nvim-autopairs",
+		cond = not vim.g.vscode,
+		event = "InsertEnter",
 		opts = {},
 	},
 }, {
