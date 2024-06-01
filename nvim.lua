@@ -478,12 +478,13 @@ require("lazy").setup({
 		cmd = "Neotree",
 		keys = {
 			{
-				"<c-b>",
+				"<leader>b",
 				mode = { "n", "x" },
 				function()
 					require("neo-tree.command").execute({ toggle = true })
 				end,
 				desc = "Toggle Neo-tree",
+				remap = true,
 			},
 		},
 		dependencies = {
