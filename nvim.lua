@@ -632,7 +632,6 @@ require("lazy").setup({
 	},
 	{
 		"romgrk/barbar.nvim",
-		event = "VeryLazy",
 		cond = not vim.g.vscode,
 		opts = {
 			auto_hide = 1,
