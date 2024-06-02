@@ -143,7 +143,7 @@ require("lazy").setup({
 				desc = "Search files",
 			},
 			{
-				"<c-k>",
+				"<C-k>",
 				mode = { "n" },
 				function()
 					require("fzf-lua").builtin()
@@ -678,6 +678,7 @@ require("lazy").setup({
 	},
 	{
 		"windwp/nvim-ts-autotag",
+		event = "BufReadPost",
 		cond = not vim.g.vscode,
 		opts = {},
 	},
