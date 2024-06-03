@@ -75,12 +75,7 @@ vim.keymap.set("n", "<Esc>", function()
 		flash_state:hide()
 	end
 end, { noremap = true, silent = true })
-vim.keymap.set(
-	"n",
-	"<Leader><Leader>",
-	"<Cmd>buffer#<CR>",
-	{ noremap = true, silent = true, desc = "Alternate buffer" }
-)
+vim.keymap.set("n", "<Leader>bb", "<Cmd>buffer#<CR>", { noremap = true, silent = true, desc = "Alternate buffer" })
 vim.keymap.set({ "n", "i" }, "<C-s>", "<Cmd>write<CR>", { noremap = true, silent = true, desc = "Write file" })
 vim.keymap.set({ "v", "x" }, "<", "<gv^", { noremap = true, silent = true, desc = "Indent right" })
 vim.keymap.set({ "v", "x" }, ">", ">gv^", { noremap = true, silent = true, desc = "Indent left" })
