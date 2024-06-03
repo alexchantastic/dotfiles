@@ -75,23 +75,12 @@ vim.keymap.set("n", "<Esc>", function()
 		flash_state:hide()
 	end
 end, { noremap = true, silent = true })
-vim.keymap.set("n", "<S-h>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
-vim.keymap.set("n", "<S-l>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
 vim.keymap.set(
 	"n",
 	"<Leader><Leader>",
 	"<Cmd>buffer#<CR>",
 	{ noremap = true, silent = true, desc = "Alternate buffer" }
 )
-vim.keymap.set({ "n", "i" }, "<C-w>", "<Cmd>BufferClose<CR>", { noremap = true, silent = true, desc = "Close buffer" })
-vim.keymap.set("n", "<Leader>br", "<Cmd>BufferRestore<CR>", { noremap = true, silent = true, desc = "Restore buffer" })
-vim.keymap.set(
-	"n",
-	"<Leader>bc",
-	"<Cmd>BufferCloseAllButCurrent<CR>",
-	{ noremap = true, silent = true, desc = "Close all other buffers" }
-)
-vim.keymap.set("n", "<Leader>bp", "<Cmd>BufferPick<CR>", { noremap = true, silent = true, desc = "Pick buffer" })
 vim.keymap.set({ "n", "i" }, "<C-s>", "<Cmd>write<CR>", { noremap = true, silent = true, desc = "Write file" })
 vim.keymap.set({ "v", "x" }, "<", "<gv^", { noremap = true, silent = true, desc = "Indent right" })
 vim.keymap.set({ "v", "x" }, ">", ">gv^", { noremap = true, silent = true, desc = "Indent left" })
@@ -633,24 +622,57 @@ require("lazy").setup({
 	{
 		"romgrk/barbar.nvim",
 		cond = not vim.g.vscode,
-		opts = {
-			auto_hide = 1,
-			icons = {
-				separator = {
-					left = "",
-					right = "",
-				},
-				separator_at_end = false,
-				inactive = {
+		init = function()
+			vim.g.barbar_auto_setup = false
+		end,
+		config = function()
+			require("barbar").setup({
+				auto_hide = 1,
+				icons = {
 					separator = {
 						left = "",
 						right = "",
 					},
+					separator_at_end = false,
+					inactive = {
+						separator = {
+							left = "",
+							right = "",
+						},
+					},
 				},
-			},
-		},
-		init = function()
-			vim.g.barbar_auto_setup = false
+			})
+			vim.keymap.set(
+				"n",
+				"<S-h>",
+				"<Cmd>BufferPrevious<CR>",
+				{ noremap = true, silent = true, desc = "Previous buffer" }
+			)
+			vim.keymap.set("n", "<S-l>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
+			vim.keymap.set(
+				{ "n", "i" },
+				"<C-w>",
+				"<Cmd>BufferClose<CR>",
+				{ noremap = true, silent = true, desc = "Close buffer" }
+			)
+			vim.keymap.set(
+				"n",
+				"<Leader>br",
+				"<Cmd>BufferRestore<CR>",
+				{ noremap = true, silent = true, desc = "Restore buffer" }
+			)
+			vim.keymap.set(
+				"n",
+				"<Leader>bc",
+				"<Cmd>BufferCloseAllButCurrent<CR>",
+				{ noremap = true, silent = true, desc = "Close all other buffers" }
+			)
+			vim.keymap.set(
+				"n",
+				"<Leader>bp",
+				"<Cmd>BufferPick<CR>",
+				{ noremap = true, silent = true, desc = "Pick buffer" }
+			)
 		end,
 	},
 	{
