@@ -699,7 +699,13 @@ require("lazy").setup({
 	},
 	{
 		"windwp/nvim-ts-autotag",
-		event = "BufReadPost",
+		event = {
+			"BufReadPost *.jsx",
+			"BufReadPost *.tsx",
+			"BufReadPost *.html",
+			"BufReadPost *.md",
+			"BufReadPost *.mdx",
+		},
 		cond = not vim.g.vscode,
 		opts = {},
 	},
