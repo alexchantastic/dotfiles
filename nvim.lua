@@ -612,7 +612,7 @@ require("lazy").setup({
 			{
 				"<Leader>t",
 				mode = { "n" },
-				"<Cmd>Trouble diagnostics toggle<CR>",
+				"<Cmd>Trouble diagnostics toggle focus=true<CR>",
 				noremap = true,
 				silent = true,
 				desc = "Toggle Trouble",
@@ -621,7 +621,7 @@ require("lazy").setup({
 		cmd = { "Trouble", "Tr" },
 		config = function()
 			require("trouble").setup()
-			vim.cmd("command! Tr Trouble diagnostics toggle")
+			vim.cmd("command! Tr Trouble diagnostics toggle focus=true")
 		end,
 	},
 	{
