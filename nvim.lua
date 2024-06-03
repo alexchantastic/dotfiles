@@ -553,7 +553,7 @@ require("lazy").setup({
 		cmd = "Neotree",
 		keys = {
 			{
-				"<Leader>t",
+				"<Leader>e",
 				mode = { "n", "x" },
 				function()
 					require("neo-tree.command").execute({ toggle = true })
@@ -613,7 +613,17 @@ require("lazy").setup({
 	{
 		"folke/trouble.nvim",
 		cond = not vim.g.vscode,
-		cmd = { "Trouble", "TroubleToggle", "Tr" },
+		keys = {
+			{
+				"<Leader>t",
+				mode = { "n" },
+				"<Cmd>Trouble diagnostics toggle<CR>",
+				noremap = true,
+				silent = true,
+				desc = "Toggle Trouble",
+			},
+		},
+		cmd = { "Trouble", "Tr" },
 		config = function()
 			require("trouble").setup()
 			vim.cmd("command! Tr Trouble diagnostics toggle")
