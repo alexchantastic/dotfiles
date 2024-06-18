@@ -191,6 +191,9 @@ require("lazy").setup({
 					local capabilities = require("cmp_nvim_lsp").default_capabilities()
 					require("lspconfig")[server_name].setup({
 						capabilities = capabilities,
+						flags = {
+							allow_incremental_sync = false,
+						},
 					})
 				end,
 			})
