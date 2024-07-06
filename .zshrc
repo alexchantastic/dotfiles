@@ -54,7 +54,6 @@ cdsh () (
 )
 
 # Aliases
-alias ls="exa"
 alias lg="lazygit"
 alias pn="pnpm"
 alias pro="cd ~/Projects"

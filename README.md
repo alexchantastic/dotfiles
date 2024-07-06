@@ -38,7 +38,7 @@ source ~/.dotfiles/.zshrc
 ### .config/nvim/init.lua
 
 ```lua
-package.path = package.path .. ";/home/$USER/.dotfiles/?.lua"
+package.path = package.path .. ";/path/to/.dotfiles/?.lua"
 require("nvim")
 ```
 
@@ -55,7 +55,6 @@ source ~/.dotfiles/.tmux.conf
 - [Clipboard](https://github.com/Slackadays/Clipboard) - Clipboard manager
 - [croc](https://github.com/schollz/croc) - Send files between computers
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - Colorized difftool
-- [exa](https://the.exa.website/) - Colorized `ls`
 - [fd](https://github.com/sharkdp/fd) - Fast find
 - [fnm](https://github.com/Schniz/fnm) - Node version manager
 - [fzf](https://github.com/junegunn/fzf) - Fuzzy finder
@@ -68,11 +67,9 @@ source ~/.dotfiles/.tmux.conf
 - [Neovim](https://neovim.io/) - Modern vim
 - [nnn](https://github.com/jarun/nnn) - File manager
 - [Node.js](https://nodejs.org/) - JavaScript runtime
-- [pnpm](https://pnpm.io/) - JavaScript package manager
 - [ripgrep](https://github.com/BurntSushi/ripgrep) - Fast `grep`
 - [sd](https://github.com/chmln/sd) - Improved `sed`
 - [tldr](https://github.com/tldr-pages/tldr) - Simplified man pages
 - [tmux](https://github.com/tmux/tmux) - Terminal multiplexer
-- [Yarn](https://yarnpkg.com/) - JavaScript package manager
 - [viu](https://github.com/atanunq/viu) - Image viewer
 - [Zoxide](https://github.com/ajeetdsouza/zoxide) - Improved `cd`
