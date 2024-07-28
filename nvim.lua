@@ -379,16 +379,16 @@ require("lazy").setup({
 			require("conform").setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
-					javascript = { { "prettierd", "prettier" } },
-					javascriptreact = { { "prettierd", "prettier" } },
-					typescript = { { "prettierd", "prettier" } },
-					typescriptreact = { { "prettierd", "prettier" } },
-					css = { { "prettierd", "prettier" } },
-					html = { { "prettierd", "prettier" } },
-					json = { { "prettierd", "prettier" } },
-					yaml = { { "prettierd", "prettier" } },
-					markdown = { { "prettierd", "prettier" } },
-					["markdown.mdx"] = { { "prettierd", "prettier" } },
+					javascript = { "prettierd", "prettier" },
+					javascriptreact = { "prettierd", "prettier" },
+					typescript = { "prettierd", "prettier" },
+					typescriptreact = { "prettierd", "prettier" },
+					css = { "prettierd", "prettier" },
+					html = { "prettierd", "prettier" },
+					json = { "prettierd", "prettier" },
+					yaml = { "prettierd", "prettier" },
+					markdown = { "prettierd", "prettier" },
+					["markdown.mdx"] = { "prettierd", "prettier" },
 				},
 				format_on_save = function(bufnr)
 					if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
