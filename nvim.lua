@@ -68,6 +68,8 @@ vim.keymap.set({ "n", "v", "x" }, "<Leader>d", "d", { noremap = true, silent = t
 vim.keymap.set({ "n", "v", "x" }, "D", '"_D', { noremap = true, silent = true, desc = "Delete to end of line" })
 vim.keymap.set({ "n", "v", "x" }, "<Leader>D", "D", { noremap = true, silent = true, desc = "Delete to end of line" })
 vim.keymap.set({ "n", "v", "x" }, "<Leader>x", '"_x', { noremap = true, silent = true, desc = "Cut character" })
+vim.keymap.set({ "n", "v", "x" }, "c", '"_c', { noremap = true, silent = true, desc = "Change character" })
+vim.keymap.set({ "n", "v", "x" }, "<Leader>c", "c", { noremap = true, silent = true, desc = "Change character" })
 vim.keymap.set("n", "<Esc>", function()
 	vim.cmd("nohlsearch")
 	local flash_state = require("flash.plugins.char").state
