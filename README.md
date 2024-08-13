@@ -5,7 +5,7 @@ My personal collection of dotfiles.
 ## Requirements
 
 - [zsh](http://www.zsh.org/) - Unix shell
-- [Antigen](https://github.com/zsh-users/antigen) - zsh plugin manager
+- [Antidote](https://github.com/mattmc3/antidote) - zsh plugin manager
 - [tpm](https://github.com/tmux-plugins/tpm) - Tmux plugin manager
 
 ## Installation

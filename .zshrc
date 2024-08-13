@@ -27,26 +27,8 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
 # Plugins
-antigen use oh-my-zsh
-
-antigen bundle copybuffer
-antigen bundle copyfile
-antigen bundle copypath
-antigen bundle fzf
-antigen bundle git-extras
-antigen bundle gitfast
-antigen bundle httpie
-antigen bundle npm
-antigen bundle yarn
-antigen bundle zoxide
-antigen bundle Aloxaf/fzf-tab
-antigen bundle wfxr/forgit
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-antigen theme romkatv/powerlevel10k
-
-antigen apply
+antidote load ~/.dotfiles/zsh/.zsh_plugins.txt
+autoload -Uz promptinit && promptinit && prompt powerlevel10k
 
 # Functions
 cdsh () (

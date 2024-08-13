@@ -1,0 +1,17 @@
+getantidote/use-omz
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/copybuffer
+ohmyzsh/ohmyzsh path:plugins/copyfile
+ohmyzsh/ohmyzsh path:plugins/copypath
+ohmyzsh/ohmyzsh path:plugins/fzf
+ohmyzsh/ohmyzsh path:plugins/git-extras
+ohmyzsh/ohmyzsh path:plugins/gitfast
+ohmyzsh/ohmyzsh path:plugins/zoxide
+
+Aloxaf/fzf-tab
+wfxr/forgit
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
+
+romkatv/powerlevel10k kind:fpath
+
