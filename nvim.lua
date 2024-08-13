@@ -111,7 +111,8 @@ require("lazy").setup({
 	},
 	{
 		"folke/which-key.nvim",
-		cmd = "WhichKey",
+		event = "VeryLazy",
+		opts = {},
 	},
 	{
 		"ibhagwan/fzf-lua",
