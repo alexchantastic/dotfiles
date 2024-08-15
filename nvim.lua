@@ -111,6 +111,7 @@ require("lazy").setup({
 	},
 	{
 		"folke/which-key.nvim",
+		cond = not vim.g.vscode,
 		event = "VeryLazy",
 		opts = {},
 	},
@@ -130,7 +131,7 @@ require("lazy").setup({
 				desc = "Search files",
 			},
 			{
-				"<C-k>",
+				"<Leader>p",
 				mode = { "n" },
 				function()
 					require("fzf-lua").builtin()
@@ -758,6 +759,7 @@ require("lazy").setup({
 	},
 	{
 		"windwp/nvim-ts-autotag",
+		cond = not vim.g.vscode,
 		event = {
 			"BufReadPost *.jsx",
 			"BufReadPost *.tsx",
@@ -765,7 +767,6 @@ require("lazy").setup({
 			"BufReadPost *.md",
 			"BufReadPost *.mdx",
 		},
-		cond = not vim.g.vscode,
 		opts = {},
 	},
 	{
