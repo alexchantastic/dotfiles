@@ -275,6 +275,16 @@ require("lazy").setup({
 							fallback()
 						end
 					end),
+					["<Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.confirm({
+								behavior = cmp.ConfirmBehavior.Replace,
+								select = true,
+							})
+						else
+							fallback()
+						end
+					end),
 					["<C-j>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
