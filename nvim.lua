@@ -118,7 +118,7 @@ require("lazy").setup({
 	{
 		"ibhagwan/fzf-lua",
 		cond = not vim.g.vscode,
-		cmd = { "FzfLua", "Fz", "Ff", "Fb", "Fg", "Fgg", "Fs", "Fy" },
+		cmd = { "FzfLua", "Fz", "Ff", "Fb", "Fg", "Fgg", "Fs", "Fse", "Fy" },
 		keys = {
 			{
 				"<C-p>",
@@ -139,6 +139,16 @@ require("lazy").setup({
 				noremap = true,
 				silent = true,
 				desc = "Search commands",
+			},
+			{
+				"<Leader>s",
+				mode = { "n" },
+				function()
+					require("fzf-lua").lsp_document_symbols()
+				end,
+				noremap = true,
+				silent = true,
+				desc = "Document symbols",
 			},
 			{
 				"<Leader>ca",
@@ -165,8 +175,9 @@ require("lazy").setup({
 			vim.cmd("command! Fb FzfLua buffers")
 			vim.cmd("command! Fg FzfLua lgrep_curbuf")
 			vim.cmd("command! Fgg FzfLua live_grep")
+			vim.cmd("command! Fs FzfLua lsp_document_symbols")
 			vim.cmd("command! Fca FzfLua lsp_code_actions")
-			vim.cmd("command! Fs Autosession search")
+			vim.cmd("command! Fse Autosession search")
 		end,
 	},
 	{
