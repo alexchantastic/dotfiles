@@ -166,6 +166,7 @@ require("lazy").setup({
 			vim.cmd("command! Fg FzfLua lgrep_curbuf")
 			vim.cmd("command! Fgg FzfLua live_grep")
 			vim.cmd("command! Fca FzfLua lsp_code_actions")
+			vim.cmd("command! Fs Autosession search")
 		end,
 	},
 	{
@@ -740,7 +741,6 @@ require("lazy").setup({
 		config = function()
 			require("auto-session").setup()
 			vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-			vim.cmd("command! Fs Autosession search")
 		end,
 	},
 	{
