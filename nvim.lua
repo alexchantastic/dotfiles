@@ -717,8 +717,14 @@ require("lazy").setup({
 			vim.keymap.set(
 				"n",
 				"<Leader>bc",
-				"<Cmd>BufferCloseAllButCurrent<CR>",
-				{ noremap = true, silent = true, desc = "Close all other buffers" }
+				"<Cmd>BufferClose<CR>",
+				{ noremap = true, silent = true, desc = "Close buffer" }
+			)
+			vim.keymap.set(
+				"n",
+				"<Leader>ba",
+				"<Cmd>BufferCloseAllButPinned<CR>",
+				{ noremap = true, silent = true, desc = "Close all buffers" }
 			)
 			vim.keymap.set(
 				"n",
