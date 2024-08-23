@@ -181,23 +181,24 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"williamboman/mason.nvim",
+		cond = not vim.g.vscode,
+		lazy = true,
+		opts = {
+			ui = {
+				border = "rounded",
+			},
+		},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		cond = not vim.g.vscode,
 		event = "BufReadPost",
 		version = "*",
 		dependencies = {
-			{
-				"williamboman/mason.nvim",
-				opts = {
-					ui = {
-						border = "rounded",
-					},
-				},
-			},
 			"williamboman/mason-lspconfig.nvim",
 		},
 		config = function()
-			require("mason").setup()
 			local mason_lspconfig = require("mason-lspconfig")
 			mason_lspconfig.setup({
 				automatic_installation = true,
@@ -207,21 +208,19 @@ require("lazy").setup({
 					local capabilities = require("cmp_nvim_lsp").default_capabilities()
 					require("lspconfig")[server_name].setup({
 						capabilities = capabilities,
-						flags = {
-							allow_incremental_sync = false,
+					})
+				end,
+				["lua_ls"] = function()
+					require("lspconfig").lua_ls.setup({
+						settings = {
+							Lua = {
+								diagnostics = {
+									globals = { "vim" },
+								},
+							},
 						},
 					})
 				end,
-			})
-
-			require("lspconfig").lua_ls.setup({
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
-					},
-				},
 			})
 
 			vim.keymap.set(
