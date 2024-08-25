@@ -21,7 +21,7 @@ git clone git@github.com:alexchantastic/dotfiles.git .dotfiles
 ### .zshrc
 
 ```sh
-source ~/.dotfiles/.zshrc
+source ~/.dotfiles/zsh/.zshrc
 ```
 
 ### .gitconfig

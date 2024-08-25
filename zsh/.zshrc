@@ -3,6 +3,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+dotfiles=~/.dotfiles
+
 # neovim
 alias vi=nvim
 export EDITOR=nvim
@@ -12,19 +14,19 @@ export VISUAL=nvim
 eval "$(fnm env --use-on-cd)"
 
 # Powerlevel10k
-source ~/.dotfiles/zsh/p10k.zsh
+source "$dotfiles/zsh/p10k.zsh"
 
 # nnn
-source ~/.dotfiles/zsh/nnn.zsh
+source "$dotfiles/zsh/nnn.zsh"
 
 # bat
-source ~/.dotfiles/zsh/bat.zsh
+source "$dotfiles/zsh/bat.zsh"
 
 # fzf
-source ~/.dotfiles/zsh/fzf.zsh
+source "$dotfiles/zsh/fzf.zsh"
 
 # Plugins
-antidote load ~/.dotfiles/zsh/.zsh_plugins.txt
+antidote load "$dotfiles/zsh/.zsh_plugins.txt"
 autoload -Uz promptinit && promptinit && prompt powerlevel10k
 
 # Functions
@@ -36,5 +38,5 @@ cdsh () (
 alias lg="lazygit"
 alias pn="pnpm"
 alias pro="cd ~/Projects"
-alias tt='cd $(git rev-parse --show-toplevel)'
-alias ttsh='cdsh $(git rev-parse --show-toplevel)'
+alias tt="cd $(git rev-parse --show-toplevel)"
+alias ttsh="cdsh $(git rev-parse --show-toplevel)"
