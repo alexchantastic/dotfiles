@@ -38,8 +38,8 @@ source ~/.dotfiles/.zshrc
 ### .config/nvim/init.lua
 
 ```lua
-package.path = package.path .. ";/path/to/.dotfiles/?.lua"
-require("nvim")
+package.path = package.path .. ";/path/to/.dotfiles/nvim/?.lua"
+require("config")
 ```
 
 ### .tmux.conf
