@@ -451,10 +451,10 @@ require("lazy").setup({
 		config = function()
 			local lint = require("lint")
 			lint.linters_by_ft = {
-				javascript = { "eslint_d" },
-				javascriptreact = { "eslint_d" },
-				typescript = { "eslint_d" },
-				typescriptreact = { "eslint_d" },
+				javascript = { "eslint" },
+				javascriptreact = { "eslint" },
+				typescript = { "eslint" },
+				typescriptreact = { "eslint" },
 			}
 			vim.cmd("command! Lint lua require('lint').try_lint()<CR>")
 			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
