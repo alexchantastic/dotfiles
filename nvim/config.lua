@@ -72,9 +72,16 @@ vim.keymap.set({ "n", "v", "x" }, "c", '"_c', { noremap = true, silent = true, d
 vim.keymap.set({ "n", "v", "x" }, "<Leader>c", "c", { noremap = true, silent = true, desc = "Change character" })
 vim.keymap.set("n", "<Esc>", function()
 	vim.cmd("nohlsearch")
+
 	local flash_state = require("flash.plugins.char").state
 	if flash_state ~= nil then
 		flash_state:hide()
+	end
+
+	for _, win in ipairs(vim.api.nvim_list_wins()) do
+		if vim.api.nvim_win_get_config(win).relative == "win" then
+			vim.api.nvim_win_close(win, false)
+		end
 	end
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "<Leader>bb", "<Cmd>buffer#<CR>", { noremap = true, silent = true, desc = "Alternate buffer" })
