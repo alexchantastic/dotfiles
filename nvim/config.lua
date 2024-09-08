@@ -212,6 +212,15 @@ require("lazy").setup({
 				end,
 			})
 
+			vim.g.diagnostic_virtual_text = false
+			vim.diagnostic.config({
+				virtual_text = vim.g.diagnostic_virtual_text,
+				underline = true,
+				float = {
+					border = "rounded",
+				},
+			})
+
 			vim.keymap.set(
 				"n",
 				"gd",
@@ -231,6 +240,13 @@ require("lazy").setup({
 				{ noremap = true, silent = true, desc = "Goto references" }
 			)
 			vim.keymap.set("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover documentation" })
+			vim.keymap.set("n", "KK", "<Cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Hover diagnostic" })
+			vim.keymap.set("n", "<Leader>tt", function()
+				vim.g.diagnostic_virtual_text = not vim.g.diagnostic_virtual_text
+				vim.diagnostic.config({
+					virtual_text = vim.g.diagnostic_virtual_text,
+				})
+			end, { silent = true, noremap = true, desc = "Toggle diagnostics virtual text" })
 		end,
 	},
 	{
