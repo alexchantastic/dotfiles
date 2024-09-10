@@ -768,9 +768,26 @@ require("lazy").setup({
 	{
 		"echasnovski/mini.nvim",
 		event = "BufReadPost",
+		dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
 		config = function()
 			require("mini.move").setup()
-			require("mini.ai").setup()
+
+			local spec = require("mini.ai").gen_spec
+			require("mini.ai").setup({
+				custom_textobjects = {
+					F = spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
+					A = spec.treesitter({ a = "@attribute.outer", i = "@attribute.inner" }),
+					g = function()
+						local from = { line = 1, col = 1 }
+						local to = {
+							line = vim.fn.line("$"),
+							col = math.max(vim.fn.getline("$"):len(), 1),
+						}
+						return { from = from, to = to }
+					end,
+					["#"] = { "%f[%d]%d+" },
+				},
+			})
 		end,
 	},
 	{
