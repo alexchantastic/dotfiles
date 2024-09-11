@@ -772,20 +772,20 @@ require("lazy").setup({
 		config = function()
 			require("mini.move").setup()
 
+			require("mini.extra").setup()
+
 			local spec = require("mini.ai").gen_spec
+			local extra_spec = require("mini.extra").gen_ai_spec
 			require("mini.ai").setup({
 				custom_textobjects = {
 					F = spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
 					A = spec.treesitter({ a = "@attribute.outer", i = "@attribute.inner" }),
-					g = function()
-						local from = { line = 1, col = 1 }
-						local to = {
-							line = vim.fn.line("$"),
-							col = math.max(vim.fn.getline("$"):len(), 1),
-						}
-						return { from = from, to = to }
-					end,
-					["#"] = { "%f[%d]%d+" },
+					c = spec.treesitter({ a = "@comment.outer", i = "@comment.inner" }),
+					g = extra_spec.buffer(),
+					d = extra_spec.diagnostic(),
+					i = extra_spec.indent(),
+					l = extra_spec.line(),
+					["#"] = extra_spec.number(),
 				},
 			})
 		end,
