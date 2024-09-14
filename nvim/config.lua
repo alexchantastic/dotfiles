@@ -780,11 +780,11 @@ require("lazy").setup({
 				custom_textobjects = {
 					F = spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
 					A = spec.treesitter({ a = "@attribute.outer", i = "@attribute.inner" }),
-					c = spec.treesitter({ a = "@comment.outer", i = "@comment.inner" }),
+					C = spec.treesitter({ a = "@comment.outer", i = "@comment.inner" }),
 					g = extra_spec.buffer(),
 					d = extra_spec.diagnostic(),
 					i = extra_spec.indent(),
-					l = extra_spec.line(),
+					L = extra_spec.line(),
 					["#"] = extra_spec.number(),
 				},
 			})
