@@ -545,6 +545,18 @@ require("lazy").setup({
 		},
 	},
 	{
+		"smjonas/live-command.nvim",
+		cmd = { "Preview", "Norm", "G" },
+		config = function()
+			require("live-command").setup({
+				commands = {
+					Norm = { cmd = "norm" },
+					G = { cmd = "g" },
+				},
+			})
+		end,
+	},
+	{
 		"mg979/vim-visual-multi",
 		event = "BufReadPost",
 	},
