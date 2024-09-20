@@ -557,10 +557,6 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"mg979/vim-visual-multi",
-		event = "BufReadPost",
-	},
-	{
 		"gbprod/yanky.nvim",
 		cmd = "Fy",
 		keys = {
