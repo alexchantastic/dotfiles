@@ -796,6 +796,8 @@ require("lazy").setup({
 					["#"] = extra_spec.number(),
 				},
 			})
+
+			require("mini.bracketed").setup()
 		end,
 	},
 	{
