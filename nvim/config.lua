@@ -63,11 +63,12 @@ vim.keymap.set(
 	"<Cmd>vertical resize +2<CR>",
 	{ noremap = true, silent = true, desc = "Increase window width" }
 )
-vim.keymap.set({ "n", "v", "x" }, "d", '"_d', { noremap = true, silent = true, desc = "Delete character" })
-vim.keymap.set({ "n", "v", "x" }, "<Leader>d", "d", { noremap = true, silent = true, desc = "Delete character" })
+vim.keymap.set({ "n", "v", "x" }, "d", '"_d', { noremap = true, silent = true, desc = "Delete text" })
+vim.keymap.set({ "n", "v", "x" }, "<Leader>d", "d", { noremap = true, silent = true, desc = "Delete text" })
 vim.keymap.set({ "n", "v", "x" }, "D", '"_D', { noremap = true, silent = true, desc = "Delete to end of line" })
 vim.keymap.set({ "n", "v", "x" }, "<Leader>D", "D", { noremap = true, silent = true, desc = "Delete to end of line" })
-vim.keymap.set({ "n", "v", "x" }, "<Leader>x", '"_x', { noremap = true, silent = true, desc = "Cut character" })
+vim.keymap.set({ "n", "v", "x" }, "x", '"_x', { noremap = true, silent = true, desc = "Delete character" })
+vim.keymap.set({ "n", "v", "x" }, "<Leader>x", "x", { noremap = true, silent = true, desc = "Delete character" })
 vim.keymap.set({ "n", "v", "x" }, "c", '"_c', { noremap = true, silent = true, desc = "Change character" })
 vim.keymap.set({ "n", "v", "x" }, "<Leader>c", "c", { noremap = true, silent = true, desc = "Change character" })
 vim.keymap.set("n", "<Esc>", function()
