@@ -798,6 +798,8 @@ require("lazy").setup({
 			})
 
 			require("mini.bracketed").setup()
+
+			require("mini.operators").setup()
 		end,
 	},
 	{
