@@ -118,12 +118,6 @@ require("lazy").setup({
 		opts = {},
 	},
 	{
-		"folke/which-key.nvim",
-		cond = not vim.g.vscode,
-		event = "VeryLazy",
-		opts = {},
-	},
-	{
 		"ibhagwan/fzf-lua",
 		cond = not vim.g.vscode,
 		cmd = { "FzfLua", "Fz", "Ff", "Fb", "Fg", "Fgg", "Fs", "Fse", "Fy" },
