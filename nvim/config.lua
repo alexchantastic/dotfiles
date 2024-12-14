@@ -842,6 +842,12 @@ require("lazy").setup({
 		event = "InsertEnter",
 		opts = {},
 	},
+	{
+		"sphamba/smear-cursor.nvim",
+		cond = not vim.g.vscode,
+		event = { "CursorMoved" },
+		opts = {},
+	},
 }, {
 	install = {
 		colorscheme = { "catppuccin" },
