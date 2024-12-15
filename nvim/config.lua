@@ -160,13 +160,7 @@ require("lazy").setup({
 			},
 		},
 		config = function()
-			require("fzf-lua").setup({
-				actions = {
-					files = {
-						["default"] = require("fzf-lua.actions").file_edit,
-					},
-				},
-			})
+			require("fzf-lua").setup()
 			require("fzf-lua").register_ui_select()
 			vim.cmd("command! Fz FzfLua builtin")
 			vim.cmd("command! Ff FzfLua files")
