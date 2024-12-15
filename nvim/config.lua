@@ -40,10 +40,6 @@ end
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 
 -- Keymaps
-vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true, desc = "Go to left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true, desc = "Go to lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true, desc = "Go to upper window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true, desc = "Go to right window" })
 vim.keymap.set("n", "<C-Up>", "<Cmd>resize +2<CR>", { noremap = true, silent = true, desc = "Increase window height" })
 vim.keymap.set(
 	"n",
@@ -727,12 +723,6 @@ require("lazy").setup({
 				{ noremap = true, silent = true, desc = "Previous buffer" }
 			)
 			vim.keymap.set("n", "<S-l>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
-			vim.keymap.set(
-				{ "n", "i" },
-				"<C-w>",
-				"<Cmd>BufferClose<CR>",
-				{ noremap = true, silent = true, desc = "Close buffer" }
-			)
 			vim.keymap.set(
 				"n",
 				"<Leader>br",
