@@ -160,7 +160,13 @@ require("lazy").setup({
 			},
 		},
 		config = function()
-			require("fzf-lua").setup()
+			require("fzf-lua").setup({
+				keymap = {
+					fzf = {
+						["ctrl-a"] = "toggle-all",
+					},
+				},
+			})
 			require("fzf-lua").register_ui_select()
 			vim.cmd("command! Fz FzfLua builtin")
 			vim.cmd("command! Ff FzfLua files")
