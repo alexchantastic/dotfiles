@@ -86,6 +86,13 @@ vim.keymap.set({ "n", "i" }, "<C-s>", "<Cmd>write<CR>", { noremap = true, silent
 vim.keymap.set({ "v", "x" }, "<", "<gv^", { noremap = true, silent = true, desc = "Indent right" })
 vim.keymap.set({ "v", "x" }, ">", ">gv^", { noremap = true, silent = true, desc = "Indent left" })
 
+-- Commands
+vim.cmd("command! W w")
+vim.cmd("command! Wq wq")
+vim.cmd("command! WQ wq")
+vim.cmd("command! Q q")
+vim.cmd("command! X x")
+
 -- Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
