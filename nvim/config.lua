@@ -212,7 +212,7 @@ require("lazy").setup({
 			})
 			mason_lspconfig.setup_handlers({
 				function(server_name)
-					local capabilities = require("cmp_nvim_lsp").default_capabilities()
+					local capabilities = require("blink.cmp").get_lsp_capabilities()
 					require("lspconfig")[server_name].setup({
 						capabilities = capabilities,
 					})
@@ -257,96 +257,40 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"hrsh7th/nvim-cmp",
-		cond = not vim.g.vscode,
-		event = { "InsertEnter", "CmdlineEnter" },
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
+		"saghen/blink.cmp",
+		version = "1.*",
+		opts = {
+			keymap = {
+				preset = "enter",
+				["<C-j>"] = { "select_next", "fallback" },
+				["<C-k>"] = { "select_prev", "fallback" },
+				["<C-f>"] = { "scroll_documentation_down", "fallback" },
+				["<C-b"] = { "scroll_documentation_up", "fallback" },
+				["<C-d>"] = { "hide_documentation", "fallback" },
+				["<Tab>"] = { "accept", "fallback" },
+				["<Esc>"] = { "cancel", "fallback" },
+			},
+			completion = { documentation = { auto_show = true, auto_show_delay_ms = 500 } },
+			cmdline = {
+				keymap = {
+					preset = "enter",
+					["<C-j>"] = { "select_next", "fallback" },
+					["<C-k>"] = { "select_prev", "fallback" },
+					["<C-f>"] = { "scroll_documentation_down", "fallback" },
+					["<C-b"] = { "scroll_documentation_up", "fallback" },
+					["<C-d>"] = { "hide_documentation", "fallback" },
+					["<Tab>"] = { "accept", "fallback" },
+					["<Esc>"] = { "cancel", "fallback" },
+				},
+			},
+			sources = {
+				default = {
+					"lsp",
+					"path",
+					"buffer",
+				},
+			},
 		},
-		config = function()
-			local cmp = require("cmp")
-			cmp.setup({
-				snippet = {
-					expand = function(args)
-						vim.snippet.expand(args.body)
-					end,
-				},
-				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
-				},
-				view = {
-					docs = {
-						auto_open = true,
-					},
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.confirm({
-								behavior = cmp.ConfirmBehavior.Replace,
-								select = true,
-							})
-						else
-							fallback()
-						end
-					end),
-					["<Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.confirm({
-								behavior = cmp.ConfirmBehavior.Replace,
-								select = true,
-							})
-						else
-							fallback()
-						end
-					end),
-					["<C-j>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_next_item()
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-					["<C-k>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_prev_item()
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-				}),
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-				}, {
-					{ name = "buffer" },
-				}),
-			})
-
-			cmp.setup.cmdline({ "/", "?" }, {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = {
-					{ name = "buffer" },
-				},
-			})
-
-			cmp.setup.cmdline(":", {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources({
-					{ name = "path" },
-				}, {
-					{ name = "cmdline" },
-				}),
-				matching = { disallow_symbol_nonprefix_matching = false },
-			})
-		end,
 	},
 	{
 		"catppuccin/nvim",
