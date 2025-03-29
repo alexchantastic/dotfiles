@@ -67,6 +67,8 @@ vim.keymap.set({ "n", "v", "x" }, "x", '"_x', { noremap = true, silent = true, d
 vim.keymap.set({ "n", "v", "x" }, "<Leader>x", "x", { noremap = true, silent = true, desc = "Delete character" })
 vim.keymap.set({ "n", "v", "x" }, "c", '"_c', { noremap = true, silent = true, desc = "Change character" })
 vim.keymap.set({ "n", "v", "x" }, "<Leader>c", "c", { noremap = true, silent = true, desc = "Change character" })
+vim.keymap.set({ "n", "v", "x" }, "C", '"_C', { noremap = true, silent = true, desc = "Change to end of line" })
+vim.keymap.set({ "n", "v", "x" }, "<Leader>C", "C", { noremap = true, silent = true, desc = "Change to end of line" })
 vim.keymap.set("n", "<Esc>", function()
 	vim.cmd("nohlsearch")
 
