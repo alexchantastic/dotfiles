@@ -258,6 +258,8 @@ require("lazy").setup({
 	},
 	{
 		"saghen/blink.cmp",
+		cond = not vim.g.vscode,
+		event = { "InsertEnter", "CmdlineEnter" },
 		version = "1.*",
 		opts = {
 			keymap = {
