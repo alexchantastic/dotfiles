@@ -270,7 +270,12 @@ require("lazy").setup({
 				["<C-b"] = { "scroll_documentation_up", "fallback" },
 				["<C-d>"] = { "hide_documentation", "fallback" },
 				["<Tab>"] = { "accept", "fallback" },
-				["<Esc>"] = { "cancel", "fallback" },
+				["<Esc>"] = {
+					function(cmp)
+						cmp.cancel()
+					end,
+					"fallback",
+				},
 			},
 			completion = { documentation = { auto_show = true, auto_show_delay_ms = 500 } },
 			cmdline = {
