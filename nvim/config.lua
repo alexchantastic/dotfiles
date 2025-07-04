@@ -207,18 +207,7 @@ require("lazy").setup({
 		},
 		config = function()
 			local mason_lspconfig = require("mason-lspconfig")
-			mason_lspconfig.setup({
-				automatic_installation = true,
-			})
-			mason_lspconfig.setup_handlers({
-				function(server_name)
-					local capabilities = require("blink.cmp").get_lsp_capabilities()
-					require("lspconfig")[server_name].setup({
-						capabilities = capabilities,
-					})
-				end,
-			})
-
+			mason_lspconfig.setup()
 			vim.g.diagnostic_virtual_text = false
 			vim.diagnostic.config({
 				virtual_text = vim.g.diagnostic_virtual_text,
