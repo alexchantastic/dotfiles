@@ -248,6 +248,7 @@ require("lazy").setup({
 	{
 		"smjonas/inc-rename.nvim",
 		cond = not vim.g.vscode,
+		event = "BufReadPost",
 		config = function()
 			require("inc_rename").setup()
 			vim.keymap.set("n", "<leader>r", ":IncRename ")
