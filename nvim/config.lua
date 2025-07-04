@@ -246,6 +246,14 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"smjonas/inc-rename.nvim",
+		cond = not vim.g.vscode,
+		config = function()
+			require("inc_rename").setup()
+			vim.keymap.set("n", "<leader>r", ":IncRename ")
+		end,
+	},
+	{
 		"saghen/blink.cmp",
 		cond = not vim.g.vscode,
 		event = { "InsertEnter", "CmdlineEnter" },
