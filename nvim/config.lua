@@ -569,37 +569,31 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
+		"A7Lavinraj/fyler.nvim",
 		cond = not vim.g.vscode,
-		cmd = "Neotree",
+		cmd = "Fyler",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		branch = "stable",
 		keys = {
 			{
 				"<Leader>e",
 				mode = { "n", "x" },
 				function()
-					require("neo-tree.command").execute({ toggle = true })
+					require("fyler").open()
 				end,
 				noremap = true,
 				silent = true,
-				desc = "Toggle Neo-tree",
+				desc = "Open Fyler",
 			},
 		},
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-		},
+		---@module 'fyler'
+		---@type FylerSetupOptions
 		opts = {
-			auto_clean_after_session_restore = true,
-			filesystem = {
-				filtered_items = {
-					hide_dotfiles = false,
-					hide_by_name = {
-						".git",
-					},
-				},
-				follow_current_file = {
-					enabled = true,
+			icon_provider = "nvim-web-devicons",
+			views = {
+				explorer = {
+					kind = "split:leftmost",
+					width = 0.3,
 				},
 			},
 		},
