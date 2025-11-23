@@ -579,21 +579,23 @@ require("lazy").setup({
 				"<Leader>e",
 				mode = { "n", "x" },
 				function()
-					require("fyler").open()
+					require("fyler").toggle({ kind = "split_left_most" })
 				end,
 				noremap = true,
 				silent = true,
 				desc = "Open Fyler",
 			},
 		},
-		---@module 'fyler'
-		---@type FylerSetupOptions
 		opts = {
-			icon_provider = "nvim-web-devicons",
 			views = {
-				explorer = {
-					kind = "split:leftmost",
-					width = 0.3,
+				finder = {
+					close_on_select = false,
+					win = {
+						win_opts = {
+							number = true,
+							relativenumber = true,
+						},
+					},
 				},
 			},
 		},
