@@ -112,11 +112,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugins
 require("lazy").setup({
 	{
-		"nvim-tree/nvim-web-devicons",
-		cond = not vim.g.vscode,
-		event = "VeryLazy",
-	},
-	{
 		"lewis6991/gitsigns.nvim",
 		cond = not vim.g.vscode,
 		event = "BufReadPost",
@@ -572,7 +567,6 @@ require("lazy").setup({
 		"A7Lavinraj/fyler.nvim",
 		cond = not vim.g.vscode,
 		cmd = "Fyler",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
 		branch = "stable",
 		keys = {
 			{
@@ -718,7 +712,7 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"echasnovski/mini.nvim",
+		"nvim-mini/mini.nvim",
 		event = "BufReadPost",
 		dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
 		config = function()
@@ -744,6 +738,18 @@ require("lazy").setup({
 			require("mini.bracketed").setup()
 
 			require("mini.operators").setup()
+		end,
+	},
+	{
+		"nvim-mini/mini.icons",
+		opts = {},
+		lazy = true,
+		specs = { { "nvim-tree/nvim-web-devicons", enabled = false, optional = true } },
+		init = function()
+			package.preload["nvim-web-devicons"] = function()
+				require("mini.icons").mock_nvim_web_devicons()
+				return package.loaded["nvim-web-devicons"]
+			end
 		end,
 	},
 	{
